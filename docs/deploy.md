@@ -54,7 +54,7 @@ sudo -u openman mkdir -p /srv/openman/releases /srv/openman/shared/data
 
 # each release
 REL=/srv/openman/releases/$(date -u +%Y%m%dT%H%M%SZ)
-sudo -u openman git clone --depth 1 https://github.com/OrgoAI/openman.git "$REL"
+sudo -u openman git clone --depth 1 https://github.com/nickvasilescu/openman.git "$REL"
 cd "$REL"
 sudo -u openman npm ci --no-audit --no-fund
 sudo -u openman bash -c 'set -a; . /srv/openman/shared/env.production; set +a; npx next build'

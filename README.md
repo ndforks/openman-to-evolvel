@@ -38,7 +38,7 @@ More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/OrgoAI/openman.git
+git clone https://github.com/nickvasilescu/openman.git
 cd openman
 npm install
 ```

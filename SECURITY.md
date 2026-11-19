@@ -5,7 +5,7 @@
 Please report security problems privately. Do not open a public issue, discussion or pull request for them.
 
 Use GitHub's private vulnerability reporting for this repository:
-**[Report a vulnerability](https://github.com/OrgoAI/openman/security/advisories/new)** (Security tab, then
+**[Report a vulnerability](https://github.com/nickvasilescu/openman/security/advisories/new)** (Security tab, then
 "Report a vulnerability").
 
 Include what you can of:
