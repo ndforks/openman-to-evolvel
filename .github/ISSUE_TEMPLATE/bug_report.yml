@@ -1,0 +1,51 @@
+name: Bug report
+description: Something in OpenMan does not work as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Security problems: do not file them here.** Use private reporting as described in SECURITY.md.
+        Never paste secrets, API keys, `.env.local` contents, tokens or other people's personal data.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or error messages
+      description: Server log lines, browser console errors, or the `requestId` from an error response. Remove anything secret.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: e.g. main at abc1234
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where are you running it
+      options:
+        - Local development (npm run dev)
+        - Self-hosted production
+        - Other
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: OS, Node.js version, browser.
+      placeholder: e.g. Ubuntu 24.04, Node 22, Chrome 140

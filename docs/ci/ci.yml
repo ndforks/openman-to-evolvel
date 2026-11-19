@@ -1,0 +1,51 @@
+# Type-check, lint, production build and the tests that need no live services (no database, no Orgo, no dev server).
+# The scripts that talk to Supabase, Orgo or a running server (api-test, auth-hardening-test, db-*, mail-phone-test,
+# xss-test, qa-*) stay manual: see CONTRIBUTING.md, "Tests".
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      # Placeholders so modules that read settings at import time can load during the build. Not real values; the
+      # build never reaches a database or Orgo. The sign-in gate stays on (no development bypass is set).
+      NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_ci_placeholder
+      APP_PUBLIC_URL: https://ci.invalid
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Type-check
+        run: npx tsc --noEmit -p .
+
+      - name: Lint
+        run: npx eslint src
+
+      - name: Offline tests
+        run: |
+          node scripts/safe-fetch-test.mjs
+          node src/lib/observability/redact.test.mjs
+
+      - name: Production build
+        run: npx next build

@@ -1,0 +1,224 @@
+/*
+ * Styles the task view cannot express as utilities: keyframes, the shimmer on live rows,
+ * and typography for Markdown rendered from agent messages. Everything is prefixed `tv-`.
+ */
+
+@keyframes tv-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes tv-rise-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes tv-shimmer {
+  from { background-position: 250% 0; }
+  to { background-position: -250% 0; }
+}
+@keyframes tv-blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+@keyframes tv-pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--om-text-accent) 45%, transparent); }
+  70% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--om-text-accent) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--om-text-accent) 0%, transparent); }
+}
+@keyframes tv-morph {
+  0%, 100% { border-radius: 50%; transform: rotate(0deg) scale(1); }
+  50% { border-radius: 28%; transform: rotate(90deg) scale(0.92); }
+}
+@keyframes tv-dot-scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.7); }
+}
+@keyframes tv-spin {
+  to { transform: rotate(360deg); }
+}
+
+.tv-fade-in { animation: tv-fade-in 0.2s ease-out both; }
+.tv-rise-in { animation: tv-rise-in 0.22s ease-out both; }
+.tv-spin { animation: tv-spin 0.9s linear infinite; }
+
+/* Text with a highlight sweeping across it, used by the row for the action in progress. */
+.tv-shimmer {
+  color: var(--om-text-3);
+  background-image: linear-gradient(110deg, currentColor 35%, var(--tv-shimmer-highlight, var(--om-text-1)) 50%, currentColor 75%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: tv-shimmer 2.6s linear infinite;
+}
+
+/* Three dots after the thinking status. */
+.tv-dots { display: inline-flex; align-items: flex-end; gap: 3px; margin-inline-start: 4px; }
+.tv-dots > i { width: 3px; height: 3px; border-radius: 9999px; background: currentColor; animation: tv-blink 1.4s infinite both; }
+.tv-dots > i:nth-child(2) { animation-delay: 0.2s; }
+.tv-dots > i:nth-child(3) { animation-delay: 0.4s; }
+
+/* The blue dot in front of the live row and of the busy status. */
+.tv-live-dot {
+  display: block;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #5fb8ff 0%, var(--om-text-accent) 45%, #2a5cff 100%);
+  animation: tv-pulse-ring 1.8s ease-out infinite;
+}
+/* The same dot while the agent is thinking: it morphs between a circle and a rounded square. */
+.tv-think-dot {
+  display: block;
+  border-radius: 28%;
+  background: linear-gradient(135deg, #58b4ff 0%, var(--om-text-accent) 50%, #2a5cff 100%);
+  animation: tv-morph 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tv-shimmer, .tv-live-dot, .tv-think-dot, .tv-dots > i, .tv-fade-in, .tv-rise-in { animation: none; }
+  .tv-shimmer { -webkit-text-fill-color: currentColor; background-image: none; }
+}
+
+/* Thin scrollbars that stay out of the way. */
+.tv-scroll { scrollbar-width: thin; scrollbar-color: var(--om-fill-strong) transparent; }
+.tv-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.tv-scroll::-webkit-scrollbar-thumb { background: var(--om-fill-strong); border-radius: 9999px; border: 2px solid transparent; background-clip: padding-box; }
+.tv-scroll::-webkit-scrollbar-track { background: transparent; }
+
+/* ------------------------------------------------------------------ Markdown */
+
+.tv-md {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--om-text-1);
+  overflow-wrap: anywhere;
+}
+.tv-md > * { margin-block: 0; }
+.tv-md > * + * { margin-top: 12px; }
+.tv-md h1, .tv-md h2, .tv-md h3, .tv-md h4, .tv-md h5, .tv-md h6 { font-weight: 600; color: var(--om-text-1); }
+.tv-md h1 { font-size: 24px; line-height: 32px; }
+.tv-md h2 { font-size: 20px; line-height: 28px; }
+.tv-md h3 { font-size: 18px; line-height: 26px; }
+.tv-md h4, .tv-md h5, .tv-md h6 { font-size: 16px; line-height: 24px; }
+.tv-md > h1:not(:first-child), .tv-md > h2:not(:first-child) { margin-top: 24px; }
+.tv-md > h3:not(:first-child), .tv-md > h4:not(:first-child) { margin-top: 20px; }
+.tv-md strong { font-weight: 600; }
+.tv-md em { font-style: italic; }
+.tv-md del { color: var(--om-text-3); }
+.tv-md a { color: var(--om-text-accent); text-decoration: none; }
+.tv-md a:hover { text-decoration: underline; text-underline-offset: 2px; }
+.tv-md ul, .tv-md ol { padding: 0; margin-bottom: 0; }
+.tv-md ul li, .tv-md ol li { margin-inline-start: 26px; padding-block: 3px; padding-inline: 2px 0; }
+.tv-md ul li { list-style-type: disc; }
+.tv-md ol li { list-style-type: decimal; }
+.tv-md li > ul, .tv-md li > ol { padding-top: 3px; margin-top: 0; }
+.tv-md li > p { margin: 0; }
+.tv-md li > p + p { margin-top: 6px; }
+.tv-md li::marker { color: var(--om-text-2); }
+.tv-md ul.contains-task-list { padding-inline-start: 2px; }
+.tv-md ul.contains-task-list li { margin-inline-start: 0; list-style-type: none; }
+.tv-md ul.contains-task-list li input { vertical-align: middle; margin-inline-end: 6px; width: 16px; height: 16px; margin-bottom: 2px; accent-color: var(--om-text-accent); }
+.tv-md code { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+.tv-md code:not(pre code) { background-color: var(--om-fill); border-radius: 4px; padding-block: 0.2em; padding-inline: 0.4em; font-size: 85%; }
+.tv-md pre {
+  background: var(--om-fill-subtle);
+  border: 1px solid var(--om-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--om-text-1);
+}
+.tv-md pre code { background: none; padding: 0; font-size: inherit; white-space: pre; }
+.tv-md blockquote { border-inline-start: 3px solid var(--om-border-strong); padding-inline-start: 12px; color: var(--om-text-2); }
+.tv-md blockquote > * + * { margin-top: 8px; }
+.tv-md hr { border: 0; height: 1px; background: var(--om-border); margin-block: 20px; }
+.tv-md img { max-width: 100%; height: auto; border-radius: 8px; }
+.tv-md .tv-table { overflow-x: auto; border: 1px solid var(--om-border); border-radius: 12px; }
+/* Columns keep a readable width and the box scrolls sideways, instead of words breaking letter by letter. */
+.tv-md table { width: 100%; min-width: max-content; border-collapse: collapse; font-size: 14px; line-height: 20px; }
+.tv-md th, .tv-md td { max-width: 300px; padding: 7px 10px; text-align: start; vertical-align: top; border-bottom: 1px solid var(--om-border); overflow-wrap: break-word; }
+.tv-md th + th, .tv-md td + td { border-inline-start: 1px solid var(--om-border); }
+.tv-md th { font-weight: 600; background: var(--om-fill-subtle); white-space: nowrap; }
+.tv-md tbody tr:last-child td { border-bottom: 0; }
+
+/* Compact variant: the document shown in the computer panel. */
+.tv-md.tv-md-doc { font-size: 14px; line-height: 23px; }
+.tv-md.tv-md-doc h1 { font-size: 26px; line-height: 34px; font-weight: 700; }
+.tv-md.tv-md-doc h2 { font-size: 20px; line-height: 28px; font-weight: 700; }
+.tv-md.tv-md-doc h3 { font-size: 16px; line-height: 24px; }
+.tv-md.tv-md-doc a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* A delivered document opened in the side panel: serif title and roomier text. */
+.tv-md.tv-md-file { font-size: 16px; line-height: 26px; }
+.tv-md.tv-md-file > * + * { margin-top: 14px; }
+.tv-md.tv-md-file h1 { font-family: var(--font-serif, "Libre Baskerville", Georgia, serif); font-size: 32px; line-height: 40px; font-weight: 700; letter-spacing: -0.01em; }
+.tv-md.tv-md-file h2 { font-size: 22px; line-height: 30px; font-weight: 700; }
+.tv-md.tv-md-file h3 { font-size: 18px; line-height: 26px; }
+.tv-md.tv-md-file > h2:not(:first-child) { margin-top: 28px; }
+.tv-md.tv-md-file .tv-table { border-radius: 8px; }
+
+/* Smallest variant: the document preview inside a file card. */
+.tv-md.tv-md-preview { font-size: 13px; line-height: 18px; }
+.tv-md.tv-md-preview > * + * { margin-top: 8px; }
+.tv-md.tv-md-preview h1 { font-size: 20px; line-height: 26px; font-weight: 700; }
+.tv-md.tv-md-preview h2 { font-size: 18px; line-height: 24px; font-weight: 700; }
+.tv-md.tv-md-preview h3 { font-size: 15px; line-height: 22px; }
+.tv-md.tv-md-preview > h2:not(:first-child), .tv-md.tv-md-preview > h1:not(:first-child) { margin-top: 22px; }
+.tv-md.tv-md-preview ul li, .tv-md.tv-md-preview ol li { padding-block: 1px; margin-inline-start: 20px; }
+
+/* Cards: slightly smaller text. */
+.tv-md.tv-md-compact { font-size: 15px; line-height: 22px; }
+/* Places that already show the document title drop the leading heading. */
+.tv-md.tv-md-untitled > h1:first-child { display: none; }
+.tv-md.tv-md-untitled > h1:first-child + * { margin-top: 0; }
+
+/* While a message is still streaming, a round cursor follows the last line. */
+.tv-md-streaming > :not(ol):not(ul):not(pre):not(.tv-table):last-child::after,
+.tv-md-streaming > ol:last-child li:last-child::after,
+.tv-md-streaming > ul:last-child li:last-child::after,
+.tv-md-streaming > pre:last-child code::after {
+  content: "";
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.25rem;
+  vertical-align: middle;
+  background: var(--om-icon-1);
+  border-radius: 9999px;
+  animation: tv-dot-scale 1.4s infinite;
+}
+
+/* ------------------------------------------------------------------ noVNC */
+
+/* noVNC injects a div and a canvas; keep them filling the host and centred. */
+.tv-vnc > div { width: 100% !important; height: 100% !important; background: transparent !important; overflow: hidden !important; }
+.tv-vnc canvas { outline: none; }
+
+/* ------------------------------------------------------------------ timeline slider */
+
+.tv-range { -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 16px; margin: 0; background: transparent; cursor: pointer; outline: none; }
+.tv-range:disabled { cursor: default; }
+.tv-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, var(--om-text-accent) 0 var(--tv-fill, 100%), var(--om-fill-sunken) var(--tv-fill, 100%) 100%);
+}
+.tv-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -5px;
+  border-radius: 9999px;
+  background: var(--om-text-accent);
+  border: 2px solid var(--om-bg);
+  box-sizing: border-box;
+}
+.tv-range::-moz-range-track { height: 4px; border-radius: 9999px; background: var(--om-fill-sunken); }
+.tv-range::-moz-range-progress { height: 4px; border-radius: 9999px; background: var(--om-text-accent); }
+.tv-range::-moz-range-thumb { width: 14px; height: 14px; border-radius: 9999px; background: var(--om-text-accent); border: 2px solid var(--om-bg); box-sizing: border-box; }
+.tv-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px color-mix(in srgb, var(--om-text-accent) 35%, transparent); }
+.tv-range:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 3px color-mix(in srgb, var(--om-text-accent) 35%, transparent); }
+.tv-range:disabled::-webkit-slider-thumb { background: var(--om-icon-disabled); }
+.tv-range:disabled::-webkit-slider-runnable-track { background: var(--om-fill-sunken); }

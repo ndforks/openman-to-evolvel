@@ -1,0 +1,168 @@
+/*
+ * OpenMan design tokens.
+ *
+ * Every colour the interface uses lives here, as an `--om-*` custom property. Light values sit on `:root`,
+ * dark values on `.dark` (the logged-in app renders dark by default). Use them through Tailwind arbitrary
+ * values, e.g. `bg-[var(--om-bg)]`, `text-[var(--om-text-2)]`, `border-[var(--om-border)]`.
+ *
+ * Naming:
+ *   text-1..4       text from strongest to weakest      icon-1..3   icons, same scale
+ *   bg / surface    page and raised surfaces             card        resting cards and tiles
+ *   fill-*          translucent hover and pressed fills  border-*    hairlines, from subtle to strong
+ *   danger / success / warning   status colours, with a `-soft` tint for backgrounds
+ *   btn-*           button faces                         shadow-*    shadow colours (not full shadows)
+ */
+
+:root {
+  /* Text */
+  --om-text-1: #1a1a1a;
+  --om-text-2: #4d4d4d;
+  --om-text-3: #737373;
+  --om-text-4: #8c8c8c;
+  --om-text-disabled: #a6a6a6;
+  --om-text-accent: #0081f2;
+  --om-text-inverse: #fff;
+  --om-text-on-accent: #fff;
+  --om-text-on-accent-soft: #fff9;
+
+  /* Icons */
+  --om-icon-1: #1a1a1a;
+  --om-icon-2: #4d4d4d;
+  --om-icon-3: #737373;
+  --om-icon-disabled: #a6a6a6;
+  --om-icon-accent: #0081f2;
+  --om-icon-inverse: #fff;
+  --om-icon-on-accent: #fff;
+
+  /* Surfaces */
+  --om-bg: #f8f8f7;
+  --om-bg-2: #f3f3f3;
+  --om-bg-clear: #fff0;
+  --om-bg-sidebar: #f0f0f0;
+  --om-surface: #fff;
+  --om-surface-sunken: #f8f8f7;
+  --om-card: #fafafa;
+  --om-input-fade: #ececeb;
+  --om-preview-bg: #575756;
+  --om-video-bg: #000;
+
+  /* Overlays */
+  --om-scrim: #0000004d;
+  --om-scrim-light: #ffffffa6;
+  --om-tooltip-bg: #000000e6;
+  --om-tooltip-border: #ffffff38;
+
+  /* Borders */
+  --om-border: #0000000f;
+  --om-border-subtle: #0000000a;
+  --om-border-strong: #00000024;
+  --om-border-focus: #0000004d;
+  --om-border-accent: #0081f247;
+  --om-border-tinted: #4f59661f;
+
+  /* Fills (hover, pressed, selected) */
+  --om-fill: #37352f0f;
+  --om-fill-subtle: #37352f0a;
+  --om-fill-strong: #37352f14;
+  --om-fill-sunken: #37352f0a;
+  --om-fill-accent: #0081f214;
+  --om-fill-solid: #fff;
+  --om-fill-solid-raised: #fff;
+
+  /* Status */
+  --om-danger: #e1474b;
+  --om-danger-solid: #fb494f;
+  --om-danger-soft: #f25a5a14;
+  --om-success: #3da546;
+  --om-success-soft: #25ba3b14;
+  --om-warning: #efa201;
+
+  /* Buttons */
+  --om-btn-primary: #1a1a19;
+  --om-btn-primary-disabled: #898988;
+  --om-btn-accent: #0081f2;
+  --om-btn-border: #0000001f;
+
+  /* Shadow colours */
+  --om-shadow-md: #0000000f;
+  --om-shadow-sm: #0000000a;
+  --om-shadow-xs: #00000005;
+  --om-shadow-highlight: #0000;
+}
+
+.dark {
+  /* Text */
+  --om-text-1: #e6e6e6;
+  --om-text-2: #b3b3b3;
+  --om-text-3: #8c8c8c;
+  --om-text-4: #7a7a7a;
+  --om-text-disabled: #595959;
+  --om-text-accent: #1a93fe;
+  --om-text-inverse: #000000e5;
+  --om-text-on-accent: #fff;
+  --om-text-on-accent-soft: #fff9;
+
+  /* Icons */
+  --om-icon-1: #e6e6e6;
+  --om-icon-2: #b3b3b3;
+  --om-icon-3: #8c8c8c;
+  --om-icon-disabled: #595959;
+  --om-icon-accent: #1a93fe;
+  --om-icon-inverse: #000000d9;
+  --om-icon-on-accent: #fff;
+
+  /* Surfaces */
+  --om-bg: #1a1a1a;
+  --om-bg-2: #313131;
+  --om-bg-clear: #1a1a1a00;
+  --om-bg-sidebar: #1f1f1f;
+  --om-surface: #242424;
+  --om-surface-sunken: #1a1a1a;
+  --om-card: #1c1c1c;
+  --om-input-fade: #232323;
+  --om-preview-bg: #040404;
+  --om-video-bg: #000;
+
+  /* Overlays */
+  --om-scrim: #0009;
+  --om-scrim-light: #3f3f3f52;
+  --om-tooltip-bg: #000000e6;
+  --om-tooltip-border: #ffffff29;
+
+  /* Borders */
+  --om-border: #ffffff0f;
+  --om-border-subtle: #ffffff08;
+  --om-border-strong: #ffffff1f;
+  --om-border-focus: #ffffff52;
+  --om-border-accent: #1a93fe47;
+  --om-border-tinted: #56565f52;
+
+  /* Fills (hover, pressed, selected) */
+  --om-fill: #ffffff0f;
+  --om-fill-subtle: #ffffff0a;
+  --om-fill-strong: #ffffff14;
+  --om-fill-sunken: #0003;
+  --om-fill-accent: #1a93fe1f;
+  --om-fill-solid: #242424;
+  --om-fill-solid-raised: #404040;
+
+  /* Status */
+  --om-danger: #e1474b;
+  --om-danger-solid: #f15352;
+  --om-danger-soft: #eb4d4d1f;
+  --om-success: #61aa64;
+  --om-success-soft: #5eb92d1f;
+  --om-warning: #dca451;
+
+  /* Buttons */
+  --om-btn-primary: #fffffff2;
+  --om-btn-primary-disabled: #939393;
+  --om-btn-accent: #1a93fe;
+  --om-btn-border: #ffffff1f;
+
+  /* Shadow colours */
+  --om-shadow-md: #00000047;
+  --om-shadow-sm: #00000029;
+  --om-shadow-xs: #00000014;
+  --om-shadow-highlight: #ffffff24;
+}

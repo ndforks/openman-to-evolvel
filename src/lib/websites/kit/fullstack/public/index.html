@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>App</title>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; max-width: 520px; margin: 48px auto; padding: 0 16px; color: #111; }
+    input, button { font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid #ccc; }
+    button { background: #111; color: #fff; border-color: #111; cursor: pointer; }
+    form { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+    .muted { color: #666; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>App</h1>
+  <div id="signed-out">
+    <form id="auth">
+      <input name="email" type="email" placeholder="Email" required />
+      <input name="password" type="password" placeholder="Password (8+ characters)" required minlength="8" />
+      <button name="mode" value="signup">Sign up</button>
+      <button name="mode" value="login">Sign in</button>
+    </form>
+    <p id="auth-error" class="muted"></p>
+  </div>
+  <div id="signed-in" hidden>
+    <p>Signed in as <b id="who"></b> (<span id="role"></span>) <button id="logout">Sign out</button></p>
+  </div>
+  <script>
+    const $ = (s) => document.querySelector(s);
+    async function api(path, opts = {}) {
+      const r = await fetch(path, { ...opts, headers: { "content-type": "application/json" } });
+      const body = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(body.error || r.statusText);
+      return body;
+    }
+    async function refresh() {
+      const { user } = await api("/api/auth/me");
+      $("#signed-out").hidden = !!user;
+      $("#signed-in").hidden = !user;
+      if (user) { $("#who").textContent = user.email; $("#role").textContent = user.role; }
+    }
+    $("#auth").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      try {
+        await api(`/api/auth/${e.submitter.value}`, { method: "POST", body: JSON.stringify({ email: f.get("email"), password: f.get("password") }) });
+        $("#auth-error").textContent = "";
+        refresh();
+      } catch (err) { $("#auth-error").textContent = err.message; }
+    });
+    $("#logout").addEventListener("click", async () => { await api("/api/auth/logout", { method: "POST" }); refresh(); });
+    refresh();
+  </script>
+</body>
+</html>

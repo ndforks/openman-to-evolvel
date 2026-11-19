@@ -1,0 +1,71 @@
+/** Browser-side client for the task API. The `api` builder owns the implementation; signatures are fixed. */
+import type { AgentEvent, ComputerView, CreateTaskInput, Interaction, TaskAttachment, TaskSummary } from "./types";
+
+const j = async <T,>(res: Response): Promise<T> => { if (!res.ok) throw new Error(`${res.status} ${await res.text()}`); return res.json() as Promise<T>; };
+
+export const listTasks = () => fetch("/api/tasks").then((r) => j<{ tasks: TaskSummary[] }>(r));
+export const getTask = (id: string) => fetch(`/api/tasks/${id}`).then((r) => j<{ task: TaskSummary; events: AgentEvent[] }>(r));
+export const createTask = (input: CreateTaskInput) => fetch("/api/tasks", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(input) }).then((r) => j<{ task: TaskSummary }>(r));
+export const sendMessage = (id: string, body: { text: string; mode: "steer" | "queue" | "interrupt"; references?: string[]; interaction?: Exclude<Interaction, "chat">; attachments?: TaskAttachment[] }) => fetch(`/api/tasks/${id}/messages`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) }).then((r) => j<{ ok: true }>(r));
+export const stopTask = (id: string) => fetch(`/api/tasks/${id}/stop`, { method: "POST" }).then((r) => j<{ ok: true }>(r));
+export const respond = (id: string, body: { requestId: string; choice?: string; answer?: string }) => fetch(`/api/tasks/${id}/respond`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) }).then((r) => j<{ ok: true }>(r));
+export const getComputerView = (id: string) => fetch(`/api/tasks/${id}/computer`).then((r) => j<ComputerView>(r));
+
+/** Subscribe to a task's events from `afterSeq`. Returns an unsubscribe function. Server sends SSE `data: <AgentEvent json>`. */
+export function subscribe(id: string, afterSeq: number, onEvent: (e: AgentEvent) => void, onError?: (e: unknown) => void): () => void {
+  const es = new EventSource(`/api/tasks/${id}/events?after=${afterSeq}`);
+  es.onmessage = (m) => { try { onEvent(JSON.parse(m.data) as AgentEvent); } catch (e) { onError?.(e); } };
+  es.onerror = (e) => onError?.(e);
+  return () => es.close();
+}
+
+/* ---- task extras: modes, branch, continuation, side chats, parallel tasks, collaboration ---- */
+const post = (url: string, body?: unknown, method = "POST") => fetch(url, { method, headers: { "content-type": "application/json" }, body: body === undefined ? undefined : JSON.stringify(body) });
+const enc = encodeURIComponent;
+
+export interface TaskMemberInfo { email: string; userId: string | null; role: "collaborator"; invitedBy: string; createdAt: string }
+export type ChildTask = TaskSummary & { result?: string };
+
+/** "Switch to Agent" on a Chat task, or Confirm on a plan card (with the plan text). */
+export const switchToAgent = (id: string, plan?: string) => post(`/api/tasks/${enc(id)}/interaction`, { to: "agent", ...(plan ? { plan } : {}) }).then((r) => j<{ ok: true }>(r));
+export const branchTask = (id: string, uptoSeq?: number) => post(`/api/tasks/${enc(id)}/branch`, uptoSeq ? { uptoSeq } : {}).then((r) => j<{ task: TaskSummary }>(r));
+export const continueTask = (id: string) => post(`/api/tasks/${enc(id)}/continue`).then((r) => j<{ task: TaskSummary }>(r));
+export const listSideChats = (id: string) => fetch(`/api/tasks/${enc(id)}/side-chats`).then((r) => j<{ sideChats: TaskSummary[] }>(r));
+export const createSideChat = (id: string, prompt: string) => post(`/api/tasks/${enc(id)}/side-chats`, { prompt }).then((r) => j<{ task: TaskSummary }>(r));
+export const listChildren = (id: string) => fetch(`/api/tasks/${enc(id)}/children`).then((r) => j<{ tasks: ChildTask[] }>(r));
+export const listMembers = (id: string) => fetch(`/api/tasks/${enc(id)}/members`).then((r) => j<{ members: TaskMemberInfo[]; role: "owner" | "collaborator" }>(r));
+export const inviteMember = (id: string, email: string) => post(`/api/tasks/${enc(id)}/members`, { email }).then((r) => j<{ member: TaskMemberInfo }>(r));
+export const removeMember = (id: string, email: string) => post(`/api/tasks/${enc(id)}/members`, { email }, "DELETE").then((r) => j<{ ok: true }>(r));
+/** Whether the user's agent uses their own Anthropic key from Orgo Secrets (no Orgo credits for model usage). */
+export const getModelKey = () => fetch("/api/tasks/model-key").then((r) => j<{ ownKey: boolean; model: string | null; manageUrl: string }>(r));
+
+/* ---- attachments: files go to the user's computer in parts of 8 MB (POST /api/tasks/uploads) ---- */
+export const UPLOAD_MAX_BYTES = 100 * 1024 * 1024;
+const UPLOAD_PART = 8 * 1024 * 1024;
+
+/** Uploads one file and returns the attachment to send with the task. `onProgress` gets 0..1. */
+/**
+ * Uploads a file for a message. `where` names the computer it must land on: an existing task's (`taskId`, which
+ * may run on another computer), or the computer a new task will run on (`computerId`); the home computer otherwise.
+ */
+export async function uploadAttachment(file: File, onProgress?: (fraction: number) => void, where: { taskId?: string | null; computerId?: string | null } = {}): Promise<TaskAttachment> {
+  if (file.size > UPLOAD_MAX_BYTES) throw new Error(`"${file.name}" is larger than 100 MB.`);
+  const bytes = new Uint8Array(12);
+  crypto.getRandomValues(bytes);
+  const upload = Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
+  const parts = Math.max(1, Math.ceil(file.size / UPLOAD_PART));
+  for (let part = 0; part < parts; part += 1) {
+    const chunk = file.slice(part * UPLOAD_PART, Math.min(file.size, (part + 1) * UPLOAD_PART));
+    const qs = new URLSearchParams({ upload, name: file.name, size: String(file.size), part: String(part), parts: String(parts) });
+    if (where.taskId) qs.set("task", where.taskId);
+    else if (where.computerId) qs.set("target", where.computerId);
+    const res = await fetch(`/api/tasks/uploads?${qs}`, { method: "POST", headers: { "content-type": "application/octet-stream" }, body: chunk });
+    if (!res.ok) {
+      const message = await res.json().then((b: { error?: string }) => b.error).catch(() => null);
+      throw new Error(message || `"${file.name}" could not be uploaded.`);
+    }
+    onProgress?.((part + 1) / parts);
+    if (part === parts - 1) return ((await res.json()) as { file: TaskAttachment }).file;
+  }
+  throw new Error(`"${file.name}" could not be uploaded.`);
+}
