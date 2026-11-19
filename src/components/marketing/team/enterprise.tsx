@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** "Security": four cards about how data is handled, and a link to the security docs. */
 import type { ReactNode } from "react";
 import Link from "next/link";

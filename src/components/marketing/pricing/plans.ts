@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** The pricing page's plans: Orgo's three, read from the one catalog (`@/lib/orgo/plans`). */
 import { PLAN_TIERS, planFeatureLines, type PlanTier } from "@/lib/orgo/plans";
 import type { PlanIconName } from "./icons";

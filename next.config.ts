@@ -1,9 +1,11 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV !== "production";
 
 /**
- * Security headers for every response (docs/SECURITY-REVIEW.md #12). Set here rather than in the proxy: with
+ * Security headers for every response (see docs/security-model.md). Set here rather than in the proxy: with
  * `cacheComponents` pages are served from prerendered shells, so a per-request nonce is not possible without
  * making every page dynamic; the policy therefore allows inline scripts Next emits for its own payload and
  * relies on React's escaping (there is no `dangerouslySetInnerHTML` in `src`).

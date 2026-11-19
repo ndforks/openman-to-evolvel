@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Account deletion and export cover every table, and deletion ends every session (review #10, #14, #15).
 //   node scripts/account-data-test.mjs
 import { readdirSync, readFileSync } from "node:fs";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Shared bits of the /api/channels routes. Server only. */
 import { homeComputerId } from "@/lib/connectors/server";
 import { BadRequest } from "@/lib/orgo/http";

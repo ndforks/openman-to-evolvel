@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Builds the public, read-only view of a shared task from its stored events. Server-only. */
 import type { AgentEvent } from "@/lib/agent/types";
 import { resolveShareToken } from "@/lib/db/shares";

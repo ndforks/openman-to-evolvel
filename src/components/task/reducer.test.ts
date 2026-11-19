@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Unit tests for the task reducer. No test runner is installed, so these use Node's own:
  *

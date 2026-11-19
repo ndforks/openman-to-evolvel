@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // A second signed-in person for QA (a collaborator or project member): a throwaway user id and email, its sealed
 // session cookie (same format the app writes, see scripts/qa-session.mjs), and a cleanup that removes every row the
 // throwaway user left in the database. Prints nothing secret.
@@ -8,7 +10,7 @@
 //   await s.cleanup();
 //
 // A real-user cookie always wins over the dev identity (`getSession` only falls back to the dev user when no valid
-// cookie is present), so this works while the dev server runs with NEXT_PUBLIC_AUTH_DISABLED=1. The throwaway user
+// cookie is present), so this works while the dev server runs with OPENMAN_DEV_BYPASS=1. The throwaway user
 // has no Orgo account or computer: fine for a collaborator, whose runs use the owner's computer.
 import path from "node:path";
 import { loadEnv } from "./env.mjs";

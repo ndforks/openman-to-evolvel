@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Small dark tooltip. Wrap the tree once in `TooltipProvider` (the app layout does). */

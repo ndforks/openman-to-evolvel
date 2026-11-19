@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Project sharing. The owner invites signed-in people by email as an `editor` (may change the instructions and files,
  * for everyone) or a `member` (gets the instructions and files and starts tasks in the project, but sees only the

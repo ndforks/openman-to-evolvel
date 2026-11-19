@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Artwork for the Websites page: the sample site in the preview card and the example thumbnails. */
 import { Lock } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";

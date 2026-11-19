@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Data layer for the public developer API (`/api/v1`) and outgoing webhooks. Server only.
  *

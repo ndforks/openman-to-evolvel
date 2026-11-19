@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Dropdown menu styled like the app's menus. Thin wrappers over Radix so keyboard and focus handling come for free. */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** The billing switch and the three plan cards, sharing one period. */

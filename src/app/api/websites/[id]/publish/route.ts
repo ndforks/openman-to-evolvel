@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { NextResponse, type NextRequest } from "next/server";
 import { siteRoute, type IdParams } from "@/lib/websites/http";
 import { publish, unpublish } from "@/lib/websites/server";

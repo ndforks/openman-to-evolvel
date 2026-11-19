@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The one way this server fetches a URL a user (or a user's agent, or a vendor event) gave it. Server only.
  *

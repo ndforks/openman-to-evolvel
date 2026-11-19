@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Exercises every repository in src/lib/db against the real database with a throwaway user id,
 // checks user scoping (a second throwaway user sees nothing), then deletes everything it made.
 //   node scripts/db-repos-test.mjs

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Who an Orgo API key belongs to, asked of Orgo itself. Server only. Used by every way in: the key Orgo hands over
  * at the end of the approval flow, a key the person pastes, and the local sign-in's `ORGO_API_KEY`.

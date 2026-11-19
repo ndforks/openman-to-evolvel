@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { remoteComputerId } from "@/lib/agent/server/remote";
 import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";

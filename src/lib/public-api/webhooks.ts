@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Outgoing webhooks: which events exist, who receives them, signing, delivery with retries.
  *

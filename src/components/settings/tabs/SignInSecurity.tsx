@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /**
@@ -12,6 +14,7 @@ import { brand } from "@/config/brand";
 import { Button, DIVIDER, LINK_BUTTON, Pane, cn } from "@/components/settings/ui";
 import { useAccount } from "@/components/settings/useAccount";
 
+/** Fallbacks until `/api/me` answers; afterwards the links come from the server (`ORGO_ORIGIN`). */
 const ORGO_SIGN_IN_URL = "https://www.orgo.ai/settings/profile";
 const ORGO_SECURITY_URL = "https://www.orgo.ai/settings/security";
 const ORGO_API_KEYS_URL = "https://www.orgo.ai/api-keys";
@@ -30,7 +33,7 @@ interface DisconnectResult {
 }
 
 /** "Disconnect Orgo": deletes the stored key, signs out everywhere, then says whether the key still lives on Orgo. */
-function DisconnectOrgo({ dev }: { dev: boolean }) {
+function DisconnectOrgo({ dev, apiKeysUrl }: { dev: boolean; apiKeysUrl: string }) {
   const [confirming, setConfirming] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -103,7 +106,7 @@ function DisconnectOrgo({ dev }: { dev: boolean }) {
         <div className={cn("mx-[4px] mt-[12px] flex items-center justify-between gap-[16px] rounded-[12px] border bg-[var(--om-card)] px-[16px] py-[12px]", DIVIDER)}>
           <div className="text-[13px] leading-[18px] text-[var(--om-text-2)]">
             A key {brand.name} created through Orgo&apos;s approval page is revoked on Orgo too. A key you pasted stays valid on Orgo until you delete it at{" "}
-            <a href={ORGO_API_KEYS_URL} target="_blank" rel="noreferrer" className="underline underline-offset-[3px]">
+            <a href={apiKeysUrl} target="_blank" rel="noreferrer" className="underline underline-offset-[3px]">
               orgo.ai API keys
             </a>
             .{error ? <span className="block text-[var(--om-danger)]">{error}</span> : null}
@@ -222,12 +225,12 @@ export default function SignInSecurityTab() {
               {account.orgo?.keyScope === "workspace" ? " (limited to one workspace)" : ""}
             </div>
           </div>
-          <ExternalButton href={ORGO_SIGN_IN_URL}>Manage in Orgo</ExternalButton>
+          <ExternalButton href={account.orgo?.links.profile ?? ORGO_SIGN_IN_URL}>Manage in Orgo</ExternalButton>
         </div>
 
         <div className="mt-[24px] flex items-center justify-between gap-[16px] px-[4px] py-[8px]">
           <RowText title="Two-step verification and passkeys" description="Set these up on your Orgo account. They protect every sign-in, including this one." />
-          <ExternalButton href={ORGO_SECURITY_URL}>Orgo security</ExternalButton>
+          <ExternalButton href={account.orgo?.links.security ?? ORGO_SECURITY_URL}>Orgo security</ExternalButton>
         </div>
 
         <div className="mt-[24px] px-[4px] py-[8px]">
@@ -268,7 +271,7 @@ export default function SignInSecurityTab() {
           </div>
         </div>
       ) : null}
-      <DisconnectOrgo dev={info?.method === "dev" || account.orgo?.via === "dev"} />
+      <DisconnectOrgo dev={info?.method === "dev" || account.orgo?.via === "dev"} apiKeysUrl={account.orgo?.links.apiKeys ?? ORGO_API_KEYS_URL} />
     </Pane>
   );
 }

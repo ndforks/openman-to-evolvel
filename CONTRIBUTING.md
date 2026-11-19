@@ -33,13 +33,13 @@ agents alike; read it before your first change.
 Always, before opening a pull request (CI runs these too, plus a production build):
 
 ```bash
-npx tsc --noEmit -p .
+npm run typecheck        # next typegen (route types) + tsc; plain `npx tsc --noEmit -p .` works once Next has run
 npx eslint src
 node scripts/safe-fetch-test.mjs
 node src/lib/observability/redact.test.mjs
 ```
 
-Tests that need a running dev server, a database or live services live in `scripts/` (`auth-hardening-test.mjs`,
+Tests that need a running dev server, a database or live services live in `scripts/` (`auth-hardening-test.mjs`, `signin-test.mjs`,
 `db-rls-check.mjs`, `xss-test.mjs`, `api-test.mjs --no-agent`, `account-data-test.mjs`, the `qa-*.mjs` browser
 scenarios and others). Each file's header says what it needs. Most read `.env.local` and expect the dev server on the
 URL given by `BASE_URL` (several default to `http://127.0.0.1:3001`; pass `BASE_URL=http://127.0.0.1:3000` if you run on

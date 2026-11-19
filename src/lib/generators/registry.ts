@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The generator registry, client-safe half: what each generator is called, what it prefills, where its
  * output lands, and which official skill (if any) it carries. The prompt contracts and the availability

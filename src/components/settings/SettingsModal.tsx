@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** The Settings dialog: tab list on the left, one content pane per tab on the right. Open with `useUI().open("settings", { tab })`. */

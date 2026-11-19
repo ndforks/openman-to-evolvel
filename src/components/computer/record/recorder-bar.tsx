@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Floating bar shown while a skill is being recorded: name, elapsed time, step count, pause capture, paste and Stop. */

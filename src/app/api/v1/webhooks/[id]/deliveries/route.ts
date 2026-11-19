@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { getEndpoint, listDeliveries } from "@/lib/db/public-api";
 import { ApiError, limitParam, list, notFound, v1 } from "@/lib/public-api/http";

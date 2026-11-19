@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Plumbing for route handlers that act as the signed-in user on Orgo: the session gate, the user's
  * Orgo client, and error shaping. A handler throws; this turns it into a JSON answer.

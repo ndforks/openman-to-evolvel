@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Data controls on the server: export everything stored for a user, delete all their tasks, delete
  * their account. Only this app's database rows are touched: never the Orgo account, its credits, its

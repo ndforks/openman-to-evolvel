@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Building blocks shared by every Settings tab. Colours come from the `--om-*` tokens. */

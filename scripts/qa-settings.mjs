@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: every Settings tab opens by deep link, shows the right heading, and has no dead controls.
 // Run: node scripts/qa.mjs scripts/qa-settings.mjs
 const TABS = [["account","Account"],["security","Sign-in & security"],["billing","Usage & Billing"],["general","General"],["shortcuts","Keyboard shortcuts"],["personalization","Personalization"],["connectors","Connectors"],["skills","Skills"],["mail","Mail"],["computers","Computers"],["email","Email"],["phone","Phone"],["wallet","Usage & Billing"],["data-controls","Data controls"],["integrations","Integrations"],["developers","Developers"]];

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Running a task on a computer the user chose, while the agent itself stays on their home computer.
  *

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Shapes shared by the channel routes and the UI ("Reach <brand> from anywhere": Telegram and Slack). */
 
 export type ChannelId = "telegram" | "slack";

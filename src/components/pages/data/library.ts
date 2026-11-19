@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Categories, file shape and sort orders of the Library page. */
 
 export const LIBRARY_CATEGORIES = ["Text & PDF", "Websites", "Slides", "Games", "Spreadsheets", "Images", "Videos", "Audio", "Mobile apps", "Others"] as const;

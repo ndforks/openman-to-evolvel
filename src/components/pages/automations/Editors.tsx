@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** The three automation editors (Schedule, Triggered task, Advanced automation), for create and edit. */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /**
@@ -8,9 +10,12 @@
  * `GET /api/me/computers` and offers:
  *  - a suitable computer already in their Orgo workspace (Orgo's Hermes template, or plain Linux Orgo installs Hermes on);
  *  - a new computer from Orgo's Hermes template, with Orgo's real price for it on their plan.
- * An account with no plan and no credit is sent to Orgo's billing page first (setup needs one of them). The choice is
- * `POST /api/me/provision` (`{ computerId }` or nothing); the progress screen follows it every two seconds and lands
- * on Home when the computer is ready. `?setup=1` shows the screens anyway (demo and QA).
+ * An account with no plan and no credit is sent to Orgo's billing page first (setup needs one of them). Someone with
+ * more than one usable Orgo workspace picks which one OpenMan works in here (`PUT /api/me/workspaces`; remembered, and
+ * changeable later in Settings, Account). The choice is `POST /api/me/provision` (`{ computerId }` or nothing); the
+ * progress screen follows it every two seconds and lands on Home when the computer is ready. A session that has ended
+ * (signed out everywhere, Orgo disconnected) goes to the sign-in page and comes back here. `?setup=1` shows the screens
+ * anyway (demo and QA).
  */
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
@@ -19,6 +24,7 @@ import { brand } from "@/config/brand";
 import { cn } from "@/components/ui/cn";
 import { CheckIcon } from "@/components/ui/icons";
 import { reloadAccount } from "@/components/settings/useAccount";
+import { CREDITS, PLAN_TIERS } from "@/lib/orgo/plans";
 
 type State = "idle" | "creating_computer" | "starting_computer" | "waiting_for_boot" | "orgo_agent_setup" | "configuring_hermes" | "publishing" | "verifying" | "ready" | "error";
 
@@ -63,6 +69,23 @@ const STEPS: { label: string; states: State[] }[] = [
 
 const READY_KEY = "openman:home-ready";
 const POLL_MS = 2000;
+const STARTER = PLAN_TIERS.find((t) => t.id === "starter") ?? PLAN_TIERS[0];
+const MIN_TOP_UP_USD = CREDITS.topUpMinCents / 100;
+
+interface WorkspaceRow {
+  id: string;
+  name: string;
+  yours: boolean;
+  role: string;
+  ownerEmail: string | null;
+  usable: boolean;
+}
+
+/** After an ended session: sign in again, then come back to this page. */
+function sendToSignIn() {
+  const here = `${window.location.pathname}${window.location.search}`;
+  window.location.assign(here === "/app" ? "/signin" : `/signin?${new URLSearchParams({ next: here }).toString()}`);
+}
 
 const primary = "inline-flex h-[38px] cursor-pointer items-center justify-center gap-[6px] rounded-[10px] bg-[var(--om-btn-primary)] px-[16px] text-[14px] font-medium text-[var(--om-text-inverse)] outline-none transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50";
 const secondary = "inline-flex h-[36px] cursor-pointer items-center justify-center gap-[6px] rounded-[10px] border border-[var(--om-border)] px-[14px] text-[14px] font-medium text-[var(--om-text-1)] outline-none hover:bg-[var(--om-fill-subtle)]";
@@ -159,7 +182,7 @@ function FundingCallout({ options, onRecheck, checking }: { options: SetupOption
     <div role="alert" className="flex flex-col gap-[12px] rounded-[12px] border border-[var(--om-border)] bg-[var(--om-fill-subtle)] p-[16px]">
       <div className="text-[14px] font-medium leading-[20px] text-[var(--om-text-1)]">Add a plan or credit on Orgo first</div>
       <p className="text-[13px] leading-[18px] text-[var(--om-text-2)]">
-        {options.billing.note ?? "Your Orgo account has no plan and no credit yet."} The Starter plan is $29 a month and keeps one computer like this always on; credit starts at $5 and pays by the hour.
+        {options.billing.note ?? "Your Orgo account has no plan and no credit yet."} Orgo&apos;s {STARTER.name} plan is {usd(STARTER.monthlyUsd)} a month and keeps one computer like this always on; credit starts at {usd(MIN_TOP_UP_USD)} and pays by the hour.
       </p>
       <div className="flex flex-wrap gap-[8px]">
         <a href={options.links.starter} target="_blank" rel="noreferrer" className={primary}>
@@ -184,10 +207,13 @@ function ChooseScreen({ onChosen }: { onChosen: (status: ProvisionStatus) => voi
   const [checking, setChecking] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [funding, setFunding] = useState(false);
+  const [spaces, setSpaces] = useState<{ current: string | null; canSwitch: boolean; workspaces: WorkspaceRow[] } | null>(null);
+  const [switching, setSwitching] = useState(false);
 
   const load = useCallback(async (first: boolean) => {
     try {
       const res = await fetch("/api/me/computers", { cache: "no-store" });
+      if (res.status === 401) return sendToSignIn();
       const body = (await res.json().catch(() => null)) as SetupOptions | { error?: string } | null;
       if (!res.ok || !body || !("candidates" in body)) throw new Error((body as { error?: string } | null)?.error ?? `Couldn't read your Orgo workspace (${res.status}).`);
       setOptions(body);
@@ -209,12 +235,46 @@ function ChooseScreen({ onChosen }: { onChosen: (status: ProvisionStatus) => voi
     void load(true);
   }, [load]);
 
+  // The Orgo workspaces this sign-in can use, for the picker (shown only when there is a choice).
+  useEffect(() => {
+    let live = true;
+    fetch("/api/me/workspaces", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((body) => {
+        if (live && body && Array.isArray(body.workspaces)) setSpaces(body as typeof spaces);
+      })
+      .catch(() => undefined);
+    return () => {
+      live = false;
+    };
+  }, []);
+
+  const switchWorkspace = async (id: string) => {
+    if (!spaces || id === spaces.current) return;
+    setSwitching(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/me/workspaces", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ workspaceId: id }) });
+      const body = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!res.ok) throw new Error(body.error ?? `Couldn't switch workspace (${res.status}).`);
+      setSpaces({ ...spaces, current: id });
+      setOptions(null);
+      await load(true);
+      void reloadAccount();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Couldn't switch workspace.");
+    } finally {
+      setSwitching(false);
+    }
+  };
+
   const go = async () => {
     setBusy(true);
     setError(null);
     try {
       const status = await read("POST", selected === "new" ? { new: true } : { computerId: selected });
-      if (status) onChosen(status);
+      if (!status) return sendToSignIn();
+      onChosen(status);
     } catch (err) {
       if (err instanceof NeedsFunding) setFunding(true);
       else setError(err instanceof Error ? err.message : "Setup could not start.");
@@ -247,8 +307,9 @@ function ChooseScreen({ onChosen }: { onChosen: (status: ProvisionStatus) => voi
   const newPrice =
     q.billedAs === "plan"
       ? `Uses room in your ${options.billing.plan} plan${q.planIncludesMediums ? ` (it keeps ${q.planIncludesMediums === 1 ? "one Medium" : `${q.planIncludesMediums} Mediums`} always on)` : ""}. Past your plan's room, Orgo bills it by the hour from credit: ${usd(q.hourlyUsd)} an hour.`
-      : `Billed by the hour from your Orgo credit: ${usd(q.hourlyUsd)} an hour, about ${usd(q.alwaysOnMonthlyUsd)} a month if it runs all the time. Orgo's Starter plan ($29 a month) keeps one always on instead.`;
+      : `Billed by the hour from your Orgo credit: ${usd(q.hourlyUsd)} an hour, about ${usd(q.alwaysOnMonthlyUsd)} a month if it runs all the time. Orgo's ${STARTER.name} plan (${usd(STARTER.monthlyUsd)} a month) keeps one always on instead.`;
   const ws = options.workspace;
+  const choices = spaces?.canSwitch ? spaces.workspaces.filter((w) => w.usable) : [];
 
   return (
     <Shell
@@ -256,10 +317,27 @@ function ChooseScreen({ onChosen }: { onChosen: (status: ProvisionStatus) => voi
       intro={
         <>
           {brand.name} works on a cloud computer in your Orgo workspace{ws ? <> <span className="font-medium text-[var(--om-text-1)]">{ws.name}</span></> : null}
-          {ws && !ws.yours && ws.ownerEmail ? `, billed to its owner (${ws.ownerEmail})` : ""}. Pick one you already have, or create a new one. You can change the workspace in Settings, Account.
+          {ws && !ws.yours && ws.ownerEmail ? `, billed to its owner (${ws.ownerEmail})` : ""}. Pick one you already have, or create a new one. You can change the workspace later in Settings, Account.
         </>
       }
     >
+      {choices.length > 1 ? (
+        <label className="flex flex-col gap-[6px]">
+          <span className="text-[13px] font-medium leading-[18px] text-[var(--om-text-2)]">Orgo workspace</span>
+          <select
+            value={spaces?.current ?? ws?.id ?? ""}
+            disabled={switching || busy}
+            onChange={(e) => void switchWorkspace(e.target.value)}
+            className="h-[38px] w-full cursor-pointer rounded-[10px] border border-[var(--om-border)] bg-[var(--om-bg)] px-[10px] text-[14px] text-[var(--om-text-1)] outline-none focus:border-[var(--om-border-focus)] disabled:cursor-wait disabled:opacity-60"
+          >
+            {choices.map((w) => (
+              <option key={w.id} value={w.id}>
+                {w.yours ? `${w.name} (yours)` : `${w.name} (${w.ownerEmail ?? w.role})`}
+              </option>
+            ))}
+          </select>
+        </label>
+      ) : null}
       {funding ? (
         <FundingCallout
           options={options}
@@ -394,7 +472,7 @@ export function SetupGate({ children }: { children: ReactNode }) {
     setError(null);
     try {
       const next = await read("POST");
-      if (!next) return setGate("open");
+      if (!next) return sendToSignIn();
       setStatus(next);
     } catch (err) {
       if (err instanceof NeedsFunding) return setGate("choose");
@@ -416,8 +494,13 @@ export function SetupGate({ children }: { children: ReactNode }) {
     read("GET")
       .then(async (s) => {
         if (!alive) return;
-        if (!s || (s.state === "ready" && !forced)) {
-          if (s) window.sessionStorage.setItem(READY_KEY, "1");
+        if (!s) return sendToSignIn();
+        if (s.state === "ready" && !forced) {
+          try {
+            window.sessionStorage.setItem(READY_KEY, "1");
+          } catch {
+            // Storage blocked: the check runs again next time.
+          }
           setGate("open");
         } else if (needsChoice(s) && !forced && (await sharedPage(pathname))) {
           // Someone else's task or project: show it without asking the caller to set up a computer of their own.

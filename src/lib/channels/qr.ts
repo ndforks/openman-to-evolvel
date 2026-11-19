@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * A small QR code encoder (byte mode, error correction level M, versions 1-40), so the Telegram pairing link can be
  * drawn as an SVG without a dependency. Follows ISO/IEC 18004 the way Project Nayuki's reference encoder does.

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Route plumbing for /api/automations: session first, readable errors. */
 import { NextResponse, type NextRequest } from "next/server";
 import { withSession } from "@/lib/agent/server/http";

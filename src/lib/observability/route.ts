@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Error reporting for route handlers. Wrap a handler and every response carries `x-request-id`; a thrown error or a
  * 5xx answer is recorded in the operator log under that id, and the client gets the id in the JSON body

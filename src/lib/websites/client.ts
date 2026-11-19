@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Browser helpers for `/api/websites/**`. */
 import type { CreateTaskInput, TaskSummary } from "@/lib/agent/types";
 import type { DbColumn, DomainsState, PreviewState, ScheduleRun, SiteAnalytics, SiteCheckpoint, SiteDomain, SiteSchedule, SiteSecret, SiteVisibility, Website } from "./types";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Small illustrations at the bottom of each Features card, built from CSS shapes and lucide icons. Decorative only. */
 import type { ReactNode } from "react";
 import {

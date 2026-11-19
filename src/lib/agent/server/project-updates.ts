@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Self-updating projects. On request inside a project task, the agent reviews the conversation and calls the
  * `omtools propose_project_update` tool; that stores a proposal and shows a card in the task with the changes as a

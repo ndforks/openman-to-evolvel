@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Browser side of "Reach <brand> from anywhere": one shared status store over `GET /api/channels`, plus the link calls. */

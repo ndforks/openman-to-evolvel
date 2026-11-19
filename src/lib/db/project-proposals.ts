@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Self-updating projects: changes an agent proposed from a project task, applied only after approval. */
 import { db, fail } from "./client";
 

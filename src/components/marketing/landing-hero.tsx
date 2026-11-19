@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Landing page hero: a link card to the guide, the heading, "Continue with Orgo", a task box and starter chips. */

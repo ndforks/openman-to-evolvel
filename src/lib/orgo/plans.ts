@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The one catalog of what Orgo sells: operating systems, computer sizes, storage, prices, plans and credits.
  * Pure data and arithmetic with no server imports, read by the API routes, the Create / Customize modals,

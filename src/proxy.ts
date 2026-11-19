@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Request gate for the app (`/app/**`). Next.js 16 calls this file "proxy" (it replaced "middleware").
  *

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Brand mark and wordmark from `src/config/brand.ts`, in the ink colour used on light marketing pages. */
 import Image from "next/image";
 import { brand } from "@/config/brand";

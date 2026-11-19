@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Loads .env.local into process.env for scripts, without printing anything.
 import { readFileSync } from "node:fs";
 import path from "node:path";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { ReactNode } from "react";
 import { MarketingShell } from "@/components/marketing/shell";
 

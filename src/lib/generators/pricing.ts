@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Batch research cost estimate. Model prices are Orgo's rate card for the models its proxy serves
  * (orgo-web `lib/credits-shared.ts`, read in `research/orgo-web-billing.md`), charged at list price plus

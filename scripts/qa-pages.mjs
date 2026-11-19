@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: each sidebar page loads without console errors and has no dead controls.
 // Run: node scripts/qa.mjs scripts/qa-pages.mjs      (PAGES=/app/library,/app/skills to limit)
 const PAGES = (process.env.PAGES ?? "/app/library,/app/websites,/app/automations,/app/automations/new,/app/plugins,/app/skills,/app/personalization,/app/computer-use").split(",");

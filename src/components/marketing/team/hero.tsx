@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Teams page hero. */
 import { brand } from "@/config/brand";
 import { SignInTrigger } from "@/components/marketing/sign-in-trigger";

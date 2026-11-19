@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Request bodies with a byte limit applied BEFORE they are buffered: a declared `Content-Length` over the limit is
  * refused at once, and the stream is read chunk by chunk and abandoned as soon as it passes the limit (so a client

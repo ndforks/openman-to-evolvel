@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: first run and sign out. `/app?setup=1` shows the setup screen even for a ready account, runs
 // POST /api/me/provision, follows its progress and lands on Home. Then Sign out from the user menu.
 // Run: node scripts/qa.mjs scripts/qa-setup.mjs

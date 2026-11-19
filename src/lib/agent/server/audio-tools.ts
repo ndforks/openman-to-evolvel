@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * `generate_speech` and `generate_sound_effect` for the agent (through the `omtools` bridge): the server spends the
  * owner's cap, calls ElevenLabs with its own key (`src/lib/voice/audio-gen.ts`) and drops the MP3 into the task's

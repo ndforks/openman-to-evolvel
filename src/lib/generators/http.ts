@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Route plumbing for `/api/generators/*`: the caller's store, and generator errors as JSON. Server only. */
 import type { NextRequest, NextResponse } from "next/server";
 import type { Session } from "@/lib/session";

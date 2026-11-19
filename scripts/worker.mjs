@@ -1,6 +1,8 @@
 #!/usr/bin/env node
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // The automations clock for a server deployment: calls POST /api/cron/tick once a minute.
-//   node scripts/worker.mjs                 (APP_URL defaults to http://localhost:3001)
+//   node scripts/worker.mjs                 (APP_URL from the environment or .env.local; default http://localhost:3000)
 //   APP_URL=https://app.example.com node scripts/worker.mjs
 //   node scripts/worker.mjs --once          (one tick, prints the result, exits)
 // Reads CRON_SECRET from the environment or .env.local; never prints it. The tick is safe to call
@@ -8,7 +10,7 @@
 import { loadEnv } from "./env.mjs";
 
 loadEnv();
-const APP_URL = (process.env.APP_URL || process.env.WORKER_APP_URL || "http://localhost:3001").replace(/\/+$/, "");
+const APP_URL = (process.env.APP_URL || process.env.WORKER_APP_URL || "http://localhost:3000").replace(/\/+$/, "");
 const SECRET = process.env.CRON_SECRET?.trim();
 const EVERY_MS = Number(process.env.WORKER_EVERY_MS || 60_000);
 const once = process.argv.includes("--once");

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The user's own Orgo computer as the place where meeting audio lives and (without an ElevenLabs key) where it
  * is transcribed. Server only. Everything runs through the user's Orgo client (`orgoFor(session)`):

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { SiteDashboard } from "@/components/pages/websites/SiteDashboard";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // End-to-end test of the public developer API (/api/v1) and outgoing webhooks against the dev server on :3001.
 //
 //   node scripts/api-test.mjs                 (full run, includes one real agent task on the dev computer)
@@ -19,7 +21,7 @@ import { createClient } from "@supabase/supabase-js";
 import { loadEnv } from "./env.mjs";
 
 loadEnv();
-const APP = process.env.TEST_APP_URL || "http://localhost:3001";
+const APP = (process.env.TEST_APP_URL || process.env.BASE_URL || "http://localhost:3001").replace(/\/$/, "");
 const AGENT = !process.argv.includes("--no-agent");
 const RECORD = process.env.API_TEST_RECORD || "";
 const USER = `test-api-${Date.now()}`;

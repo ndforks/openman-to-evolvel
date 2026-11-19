@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Scrubber over the task's tool calls: step back and forward, drag to any step, and the "Live" marker at the end. */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Round user avatar. Falls back to the default blue silhouette when there is no picture. */
 import { cn } from "@/components/ui/cn";
 

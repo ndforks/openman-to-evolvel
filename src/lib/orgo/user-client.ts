@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The Orgo REST API (https://www.orgo.ai/api) acting as one user, with that user's own key.
  * Server only: the key never reaches a browser, and several answers (computers, VNC) carry root passwords.

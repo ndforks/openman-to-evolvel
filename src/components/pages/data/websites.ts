@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Static content of the Websites page: categories, the three feature lines and the example prompts. */
 import { brand } from "@/config/brand";
 

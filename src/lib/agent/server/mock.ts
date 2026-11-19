@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Mock agent backend, used while `HERMES_BASE_URL` is unset. It plays a scripted run using the
  * same event shapes Hermes sends, so the relay, storage and UI are exercised end to end.

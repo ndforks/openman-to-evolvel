@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { Metadata } from "next";
 import { Libre_Baskerville } from "next/font/google";
 import { brand } from "@/config/brand";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Runs an ad hoc browser scenario against the dev server.
 // Usage: node scripts/qa.mjs <scenario.mjs>   or   node scripts/qa.mjs - <<'EOF' ...js... EOF
 // The scenario is the body of an async function with these in scope:

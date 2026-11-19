@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: every modal opens by deep link, closes on Escape, on its close button and on an outside click, and has no dead controls.
 // Run: node scripts/qa.mjs scripts/qa-modals.mjs
 const dlg = () => p.has('[role="dialog"]');

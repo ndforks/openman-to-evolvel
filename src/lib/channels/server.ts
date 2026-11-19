@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * "Reach <brand> from anywhere": Telegram and Slack, through Hermes' own messaging gateway on the user's computer. Server only.
  *

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** The capability cards on the Computers page; each opens the create dialog with a matching preset. */
 
 /** Preset names passed to `useUI().open("create-computer", { preset })`. */

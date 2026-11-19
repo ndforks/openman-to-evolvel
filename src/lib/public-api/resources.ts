@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Shapes for the non-task resources of `/api/v1`. */
 import type { Project } from "@/lib/db/projects";
 import type { Endpoint, Delivery } from "@/lib/db/public-api";

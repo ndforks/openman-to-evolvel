@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: project sharing with TWO real browser sessions. The owner (dev user) makes a project with instructions
 // and a file, opens the Share dialog and invites a throwaway signed-in user as Member; the member's browser lists the
 // project with a "shared" marker, opens it, sees the instructions and files but no edit, upload, delete, share or

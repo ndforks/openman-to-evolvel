@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Dev aid for `?mock=1`: plays a scripted task on a timer so the task view can be checked with no backend.
  * It speaks the same `AgentEvent` contract as the server, pauses on a question and an approval until the

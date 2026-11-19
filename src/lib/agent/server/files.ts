@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Files a task produced: where they are on the agent's computer, and a local copy of each one
  * fetched so far (under `.data/files/<taskId>/`), so a file opens instantly the second time and

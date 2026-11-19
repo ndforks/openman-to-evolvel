@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Read models for the Updates tab: runs with names, and a month calendar with upcoming runs. */
 import { getRun, listAutomations, listRuns, type RunRecord } from "@/lib/db/automations";
 import { checkRun, timeRules } from "./engine";

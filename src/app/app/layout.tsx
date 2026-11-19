@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { Suspense, type ReactNode } from "react";
 import { ModalHost } from "@/components/modals/host";
 import { EpochGuard } from "@/components/shell/epoch-guard";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The program that reads and writes skills on the user's computer. It runs under the guest's `python3`
  * (stdlib plus PyYAML, which Hermes images ship) through Orgo's `/bash`, one subcommand per call.

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { open } from "@/lib/crypto";
 import { getAccount, upsertAccount } from "@/lib/db/accounts";

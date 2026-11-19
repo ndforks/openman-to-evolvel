@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Offline checks for the operator log's redaction pass and line builder (no database, no server).
 //   node src/lib/observability/redact.test.mjs
 import path from "node:path";

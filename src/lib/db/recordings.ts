@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Recorded demonstrations ("Record a skill"). Server only; every query is scoped by `user_id`.
  * Tables: `recordings` (one row per recording), `recording_parts` (the raw timeline, appended in numbered parts)

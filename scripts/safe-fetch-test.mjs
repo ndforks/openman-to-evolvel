@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Tests the shared safe fetch (src/lib/net/safe-fetch.ts) and that every server-side fetch of a user URL uses it.
 //   node scripts/safe-fetch-test.mjs
 import http from "node:http";

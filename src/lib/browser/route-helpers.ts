@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Shared plumbing for `/api/browser/*`: the caller's own home computer and Orgo client, and error shapes. Server only. */
 import { NextResponse } from "next/server";
 import { computerFor, orgoClientFor, primeConnection } from "@/lib/agent/server/connection";

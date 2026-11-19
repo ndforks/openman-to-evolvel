@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { ApiError, idempotent, list, paginate, rawBody, storeFor, v1, validate } from "@/lib/public-api/http";
 import { createApiTask, createTaskSchema, listApiTasks } from "@/lib/public-api/tasks";

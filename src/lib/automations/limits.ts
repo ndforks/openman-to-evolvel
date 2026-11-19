@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Per-plan limits (plan labels come from Orgo, see `planLabel`). */
 
 export interface PlanLimits {

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Pure reducer that turns the stored and streamed `AgentEvent`s of one task into the view model the task screen renders.
  * No React, no browser APIs: everything here can be unit tested with plain objects (see `reducer.test.ts`).

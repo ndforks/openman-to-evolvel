@@ -1,9 +1,12 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The two ways in that skip Orgo's approval page, as pure decisions over an env object (testable, no Next imports).
  *
  * 1. Development bypass, `OPENMAN_DEV_BYPASS=1` (was `NEXT_PUBLIC_AUTH_DISABLED=1`, now refused): `/app` opens
  *    without signing in, as a dev user built from `ORGO_API_KEY`. `next dev` only. A production server with it set
- *    (or with the old name set) refuses to start (`assertSafeStartup`, called from `src/instrumentation.ts`).
+ *    (or with the old name set) refuses to start: `src/instrumentation.ts` calls `enforceSafeStartup` (`startup.ts`), which
+ *    prints the reason and exits.
  * 2. Local sign-in, `OPENMAN_LOCAL_SIGNIN=1` plus `ORGO_API_KEY`: for someone running OpenMan on their own machine.
  *    The sign-in screen offers "Sign in with this computer's Orgo key", which signs in exactly like a pasted API key
  *    (the key is checked with Orgo, the session is a real one). Offered only when all of these hold:

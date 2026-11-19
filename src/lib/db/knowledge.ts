@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Knowledge entries: things the agent should know and when to use them. At most 50 per user. */
 import { db, DbError, fail, iso } from "./client";
 

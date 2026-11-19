@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Storage contract for tasks and their event logs. Two implementations: files under `.data/` and Supabase. */
 import type { ModeId } from "@/config/brand";
 import type { AgentEvent, Effort, RunTarget, Speed, TaskStatus, TaskSummary } from "@/lib/agent/types";

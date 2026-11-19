@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { connection } from "next/server";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { MetadataRoute } from "next";
 import { brand } from "@/config/brand";
 import { visiblePages } from "./docs/_components/doc-page";

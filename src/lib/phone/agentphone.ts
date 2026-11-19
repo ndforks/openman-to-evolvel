@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * AgentPhone REST client: only the calls this app makes, shapes from https://docs.agentphone.ai/openapi.json
  * and the guides (re-checked against the live API 2026-11-19). Base URL https://api.agentphone.ai, /v1 paths.

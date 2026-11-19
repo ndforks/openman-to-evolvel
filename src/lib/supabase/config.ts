@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Sign-in settings shared by the request gate, the session code and the marketing site.
  * (The file keeps its old path because several areas import it; Supabase Auth is no longer used:

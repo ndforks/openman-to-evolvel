@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Operator metrics for `/app/admin`: counts per day and the recent error log. Aggregates only; no task titles, no
  * prompts, no user ids (error rows carry the hashed user). Server only.

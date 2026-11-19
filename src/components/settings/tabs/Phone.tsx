@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Settings → Phone: the agent's own number (AgentPhone), who may reach it, outbound texts awaiting permission, and call/SMS history. */

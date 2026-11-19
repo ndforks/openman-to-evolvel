@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** "Choose project" chip above the input: lists the user's projects and files new tasks under the chosen one. */

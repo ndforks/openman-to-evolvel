@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Budgets for starting "Sign in with Orgo". Orgo allows 20 device-flow starts an hour per calling server
  * address, shared by everyone who signs in here, so an anonymous visitor must not be able to spend them all.

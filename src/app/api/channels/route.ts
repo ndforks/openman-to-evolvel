@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { channelsStatus } from "@/lib/channels/server";
 import type { ChannelsStatus } from "@/lib/channels/types";

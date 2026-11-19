@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Cross-site request forgery check for cookie-authenticated API routes, as a pure decision (used by `src/proxy.ts`).
  *

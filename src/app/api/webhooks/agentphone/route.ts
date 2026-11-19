@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * POST /api/webhooks/agentphone: AgentPhone events. Set this URL as the webhook of this app's own sub-account
  * (`POST /v1/webhooks { url }` with `X-Sub-Account-Id: $AGENTPHONE_SUB_ACCOUNT_ID`; never the master account's, whose

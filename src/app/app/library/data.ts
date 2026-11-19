@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Server-side loader for the Library: every file the user's tasks produced (`task_files`), plus their websites. */
 import { db } from "@/lib/db/client";
 import { getSettings } from "@/lib/db/settings";

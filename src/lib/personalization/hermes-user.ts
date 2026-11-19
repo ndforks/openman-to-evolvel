@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Mirrors the personalization profile into Hermes' own user profile, `<HERMES_HOME>/memories/USER.md`
  * on the user's computer, so the agent's memory tools see it. Hermes stores entries separated by `§`

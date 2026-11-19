@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Serif used by marketing headings. Exposes `--font-libre-baskerville`, which `font-serif` reads. */
 import { Libre_Baskerville } from "next/font/google";
 

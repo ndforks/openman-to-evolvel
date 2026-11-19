@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Cloud browser settings (/api/browser) against the dev server and the dev computer.
 //   node scripts/qa-browser.mjs            (BASE_URL defaults to http://127.0.0.1:3001)
 // Seeds one harmless cookie (httpbin.org) and one fake vault login on the dev computer, checks the list, per-site

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Layout helpers shared by the Teams page sections: a 902 px column and the serif section heading. */
 import type { ReactNode } from "react";
 

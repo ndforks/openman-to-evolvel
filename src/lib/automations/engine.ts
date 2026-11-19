@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The automations engine: starts runs as the automation's owner (through the same task relay a
  * person uses), follows them to completion, retries with backoff and pauses after repeated failures.

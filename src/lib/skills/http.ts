@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Error shaping for the `/api/skills` routes. Every route calls `requireSession()` first and hands failures here. */
 import { NextResponse } from "next/server";
 import { DbError } from "@/lib/db/client";

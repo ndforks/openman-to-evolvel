@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * One row of the sidebar: 36 px tall, 10 px radius, 8 px start padding,
  * a 20 px icon box holding an 18 px glyph, an 8 px gap and a 14 px label. Used for links, buttons and menu triggers.

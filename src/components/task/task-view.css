@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: MIT */
+/* Copyright (c) 2026 Organic Intelligence, Inc. */
 /*
  * Styles the task view cannot express as utilities: keyframes, the shimmer on live rows,
  * and typography for Markdown rendered from agent messages. Everything is prefixed `tv-`.

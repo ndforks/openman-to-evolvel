@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Line icons for the pricing page (lucide-react). They inherit the text colour. */
 import {
   Building2,

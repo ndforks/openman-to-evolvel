@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Dark footer shared by every marketing page: a closing line, four link columns, copyright and the legal links. */
 import Link from "next/link";
 import { brand } from "@/config/brand";

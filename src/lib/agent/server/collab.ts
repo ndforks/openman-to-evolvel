@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Task collaboration: the owner invites signed-in people by email to read and prompt one task. Runs keep using the
  * owner's computer and the owner's Orgo account (the owner pays). Rows live in `task_members`; every lookup is by

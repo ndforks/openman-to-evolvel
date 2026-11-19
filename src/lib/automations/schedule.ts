@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Next-run computation for repeat rules in an IANA time zone, using only `Intl` (no libraries).
  * Wall-clock times that do not exist (a spring-forward gap) move forward by the gap; times that

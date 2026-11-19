@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * "Build from a task": turn a finished task into a skill. The agent is asked, as a real follow-up run in that task's
  * own Hermes session, to package what it did with its own `skill_manage` tool under a name we choose, so the new

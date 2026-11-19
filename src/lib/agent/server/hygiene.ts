@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The daily sweep of idle task folders on users' home computers (see `src/lib/limits/workspace.ts`). For each user
  * with a home computer: tasks idle longer than the limit, not running, not on another computer and not already swept

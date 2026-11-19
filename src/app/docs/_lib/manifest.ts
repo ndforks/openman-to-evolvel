@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** The docs table of contents: every page, in sidebar order. Each page's text lives in `content/docs/<slug>.md`. */
 
 export interface DocPage {

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { NextResponse, type NextRequest } from "next/server";
 import { ComputerError } from "@/lib/agent/server/computer";
 import { primeConnectionFor } from "@/lib/agent/server/connection";

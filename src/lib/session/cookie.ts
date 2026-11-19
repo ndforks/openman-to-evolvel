@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The session cookie: an AES-256-GCM sealed JSON of the `Session` fields plus an expiry, keyed by `SESSION_SECRET`.
  * HttpOnly, SameSite=Lax, 30 days. It never carries the Orgo key (that lives sealed in `accounts`).

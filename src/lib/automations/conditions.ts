@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** "Only if" conditions on a trigger's event, read by dot path (`repository.name`, `items.0.title`). */
 import type { Condition } from "./types";
 

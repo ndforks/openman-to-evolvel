@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Next.js instrumentation: the start-up safety check for sign-in settings, a start-up line and every uncaught server error (render, route, action, proxy) go to the
  * operator log (`src/lib/observability/log.ts`: JSON on stdout plus an `ops_events` row). Node runtime only; the
@@ -7,12 +9,11 @@ import type { Instrumentation } from "next";
 
 export async function register() {
   if (process.env.NEXT_RUNTIME !== "nodejs") return;
-  // Fail fast: a production server with a sign-in bypass enabled refuses to start (src/lib/session/bypass.ts).
-  const { assertSafeStartup, startupProblems } = await import("@/lib/session/bypass");
-  for (const warning of startupProblems(process.env).warnings) console.warn(`[auth] ${warning}`);
-  assertSafeStartup(process.env);
-  const { logEvent } = await import("@/lib/observability/log");
-  void logEvent("info", "server.start", { data: { node: process.version, env: process.env.NODE_ENV ?? "unknown" } });
+  // Fail fast: a production server with a sign-in bypass enabled exits at once with the reason (src/lib/session/bypass.ts).
+  const { enforceSafeStartup } = await import("@/lib/session/startup");
+  enforceSafeStartup();
+  const { logServerStart } = await import("@/lib/observability/log");
+  void logServerStart();
 }
 
 export const onRequestError: Instrumentation.onRequestError = async (err, request, context) => {

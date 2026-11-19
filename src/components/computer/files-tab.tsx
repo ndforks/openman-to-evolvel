@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** "Files" tab of the side panel: every file the task delivered, with a preview of the selected one. */

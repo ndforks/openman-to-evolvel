@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Voice types shared by the browser and the server. No imports, safe on both sides. */
 
 /** Which engine turns speech into text, for each job. Picked on the server by whether `ELEVENLABS_API_KEY` is set. */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * "Allow this text?" cards in the task that wanted to send it. The card is raised through the relay's
  * `raiseApproval`; answering it approves or denies the pending SMS. The owner can also answer by texting

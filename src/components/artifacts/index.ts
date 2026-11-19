@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Artifact viewers and the generator panel. See each module for details. */
 export { ArtifactViewer, TaskFileViewer, type ArtifactViewerProps } from "./artifact-viewer";
 export { GeneratorPanel, useIsGeneratorTask, type GeneratorPanelProps } from "./generator-panel";

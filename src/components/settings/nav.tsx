@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** The Settings tab list: ids, labels, groups and icons (lucide). */
 import type { ReactNode } from "react";
 import {

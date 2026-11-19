@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** A logo from `public/` drawn as a background image, so it scales to any box without layout shift. */
 import type { CSSProperties } from "react";
 import { cn } from "./cn";

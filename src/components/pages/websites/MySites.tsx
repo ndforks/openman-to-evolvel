@@ -1,7 +1,10 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** The user's sites on the Websites page: the "My websites" strip and the full list with status and actions. */
 import { Copy, ExternalLink, Globe, LayoutDashboard, MessageSquare, MoreHorizontal, Trash2 } from "lucide-react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger } from "@/components/ui/menu";
 import { cn } from "@/components/ui/cn";
@@ -25,11 +28,13 @@ export function siteStatusLabel(site: Website): { label: string; tone: string } 
 }
 
 export function SiteThumb({ site, className }: { site: Website; className?: string }) {
+  // A screenshot that can't be read (the server answers 204) falls back to the globe.
+  const [broken, setBroken] = useState<string | null>(null);
   return (
     <span className={cn("flex w-full shrink-0 overflow-hidden bg-[var(--om-card)]", className)}>
-      {site.thumbSha ? (
+      {site.thumbSha && broken !== site.thumbSha ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img className="size-full max-h-full max-w-full object-cover object-top" alt="" src={screenshotUrl(site.id, site.thumbSha)} loading="lazy" />
+        <img className="size-full max-h-full max-w-full object-cover object-top" alt="" src={screenshotUrl(site.id, site.thumbSha)} loading="lazy" onError={() => setBroken(site.thumbSha)} />
       ) : (
         <span className="flex size-full items-center justify-center text-[var(--om-icon-3)]">
           <Globe size={18} strokeWidth={1.6} aria-hidden />

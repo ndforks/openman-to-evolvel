@@ -26,7 +26,7 @@ else gets 404 for the page and its API.
 
 ## Before a deploy
 
-1. `npx tsc --noEmit -p .` and `npx eslint src` are clean (CI runs these plus a production build).
+1. `npm run typecheck` and `npx eslint src` are clean (CI runs these plus a production build).
 2. The offline tests pass: `node scripts/safe-fetch-test.mjs`, `node src/lib/observability/redact.test.mjs`.
 3. Against a development server and database: `node scripts/auth-hardening-test.mjs`, `node scripts/db-rls-check.mjs`,
    `node scripts/xss-test.mjs`, `node scripts/api-test.mjs --no-agent`.

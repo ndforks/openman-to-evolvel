@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Task workspace hygiene: a task's working folder on the home computer (`~/tasks/<id>`, plus its uploads) is removed
  * once the task has been idle this many days. Files it delivered or was given are kept in the server's file cache

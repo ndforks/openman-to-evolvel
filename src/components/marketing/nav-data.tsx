@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Header navigation: the dropdown menus and the plain links. Every item points at a real page about something
  * the product does today (no placeholders, no "coming soon"). Icons are lucide-react.

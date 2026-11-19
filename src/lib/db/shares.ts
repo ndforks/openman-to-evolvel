@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Share links for tasks. One per task; the token is the public part of the URL. */
 import { randomBytes } from "node:crypto";
 import { db, fail, iso } from "./client";

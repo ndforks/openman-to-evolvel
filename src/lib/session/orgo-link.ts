@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * How the account's stored Orgo key came to be: through Orgo's approval page (a key OpenMan minted for itself, which
  * it may revoke on disconnect), pasted by the person, or read from this machine's `ORGO_API_KEY` (local sign-in).

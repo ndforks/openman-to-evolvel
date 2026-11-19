@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The `/app/**` gate as a pure decision, so it can be tested without a server or a change to the shared env.
  * `src/proxy.ts` turns the decision into a response.

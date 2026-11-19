@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** 48 px bar above the Home screen: mode picker on the left, plan and credits on the right. */

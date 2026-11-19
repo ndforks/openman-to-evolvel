@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Task fields this area keeps in `tasks.meta` next to the store's own (`TaskMeta`): how the agent works on the task,
  * where it came from, what it refers to. Stored as part of the same JSON document, so no schema change is needed.

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Plumbing for the `/api/recordings` routes: every handler runs inside `route()`, which calls `requireSession()` first. */
 import { connection, NextResponse } from "next/server";
 import { DbError } from "@/lib/db/client";

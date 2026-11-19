@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** "What it costs": one card listing Orgo's plans from the catalog, with a link to the full pricing page. */
 import Link from "next/link";
 import { Check } from "lucide-react";

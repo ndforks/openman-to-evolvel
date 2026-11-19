@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** `Authorization: Bearer $CRON_SECRET` (or `x-cron-secret`), compared in constant time. Same rule as `/api/cron/tick`. */
 import { timingSafeEqual } from "node:crypto";
 

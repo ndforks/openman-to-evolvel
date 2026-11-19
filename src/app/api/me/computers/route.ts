@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { getAccount } from "@/lib/db/accounts";
 import { newComputerQuote, orgoAccountView } from "@/lib/orgo/account-view";

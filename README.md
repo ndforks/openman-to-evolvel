@@ -43,6 +43,8 @@ cd openman
 npm install
 ```
 
+To check the install, `npm run typecheck` (it generates Next's route types first, then runs the TypeScript compiler).
+
 ### 2. Create the database
 
 Apply the schema in `supabase/migrations/` to your Supabase project, either with the CLI:
@@ -81,19 +83,50 @@ node scripts/worker.mjs     # in a second terminal: runs automations and other b
 
 The worker calls the app at `APP_URL` (already `http://localhost:3000` in `.env.example`).
 
-Sign in with your Orgo account; on first sign-in OpenMan prepares your agent's computer, which can take a few minutes.
+Open the app and sign in with your Orgo account (see [Sign in with Orgo](#sign-in-with-orgo)). On first sign-in you
+choose the agent's computer; setting it up takes a few minutes.
 
-For UI work without signing in, set `OPENMAN_DEV_BYPASS=1` in `.env.local` (`npm run dev` only). You are then a local development
-user (loopback requests only, never in production). With no agent configured, a built-in mock agent plays scripted
-runs; to use a real agent computer, fill in the development values in `.env.example`.
+For UI work without signing in, set `OPENMAN_DEV_BYPASS=1` in `.env.local` (`npm run dev` only). You are then a local
+development user built from `ORGO_API_KEY`, for requests from this machine only. A production server (`next start`)
+with it set refuses to start. With no agent configured, a built-in mock agent plays scripted runs; to use a real agent
+computer, fill in the development values in `.env.example`.
 
 ## Sign in with Orgo
 
-## Sign in with Orgo
+OpenMan has no accounts of its own: everyone signs in with Orgo, and runs on their own Orgo plan, credits and
+computers.
 
-OpenMan runs on your own Orgo account. Click **Continue with Orgo**, approve OpenMan on orgo.ai (new to Orgo? create an account there), and you're in. Your Orgo plan, credits and computers carry over. You can also sign in with an Orgo API key (create one in your Orgo settings or with the `orgo` CLI). Agent runs bill your Orgo credits.
+1. **Continue with Orgo** (on the landing page, the sign-in dialog and `/signin`). OpenMan shows a short code and opens
+   orgo.ai in a new tab. Sign in there (or create an Orgo account), check the code matches and approve. OpenMan notices
+   the approval by itself and takes you back to the page you came from. If the code expires (30 minutes), the request
+   is cancelled on Orgo, or too many sign-ins are under way, the screen says so and offers to try again.
+2. **Use an API key instead.** Paste an Orgo API key. OpenMan checks it with Orgo, stores it encrypted and signs you
+   in. Create a key at [orgo.ai/api-keys](https://www.orgo.ai/api-keys) or with the Orgo CLI:
 
-Self-hosting locally: copy `.env.example` to `.env.local`, run `node scripts/setup.mjs` to generate secrets, and keep the server bound to `127.0.0.1` while developing.
+   ```bash
+   orgo login
+   orgo keys create --name OpenMan        # account-wide key (recommended)
+   ```
+
+   A key made with `--workspace <id>` also works if you are the only person in that workspace, but Orgo will not show
+   it your credit balance or billing, and OpenMan cannot switch workspaces with it. The sign-in screen says so when it
+   detects one. A workspace key for a shared workspace is refused.
+
+After sign-in, Settings, Account shows your Orgo name, email, plan and credit balance. OpenMan works in one Orgo
+workspace (your own by default): pick it on the first-run screen or change it later in Settings, Account. The first-run
+screen offers a suitable Linux computer already in that workspace (one with Orgo's Hermes agent, or plain Linux that
+Orgo installs Hermes on) or a new one from Orgo's Hermes template, with Orgo's price for it on your plan. Orgo bills a
+new computer to a plan or, on the Free plan, by the hour from credit, so an account with neither is sent to Orgo's
+billing page first.
+
+Settings, Sign-in & security has **Sign out**, **Sign out everywhere** and **Disconnect Orgo**. Disconnecting deletes
+the key OpenMan stores and signs out every browser. A key OpenMan created through the approval page is revoked on Orgo
+too; a key you pasted stays valid on Orgo until you delete it at orgo.ai/api-keys or with `orgo keys delete <id>`.
+
+**Local sign-in (self-hosting on your own machine).** Set `OPENMAN_LOCAL_SIGNIN=1` and `ORGO_API_KEY` in `.env.local`
+and the sign-in screen also offers "Sign in with this computer's Orgo key". It is offered only when the server listens
+on `127.0.0.1` (`npm run dev`, or `npm start -- -H 127.0.0.1`), `APP_PUBLIC_URL` is unset or a loopback address, and
+the request comes from this machine. A production server whose `APP_PUBLIC_URL` is public refuses to start with it set.
 
 ## Optional integrations
 

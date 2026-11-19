@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * POST /api/webhooks/agentmail: AgentMail events (delivered by Svix).
  * Register one webhook scoped to this app's pod (`POST /v0/pods/{AGENTMAIL_POD_ID}/webhooks`, never organization-wide)

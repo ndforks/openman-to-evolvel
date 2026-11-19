@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Database browser for a full-stack site: tables, rows (page, add, edit, delete) and schema, run on the user's computer. */

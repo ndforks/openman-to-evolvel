@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { Metadata } from "next";
 import { brand } from "@/config/brand";
 import { LegalPage } from "@/components/marketing/legal-page";

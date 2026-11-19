@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Rows under the plan cards: teams, credits without a plan, and where to ask about billing. */
 import Link from "next/link";
 import { brand } from "@/config/brand";

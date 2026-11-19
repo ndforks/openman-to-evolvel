@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Compatibility layer over the user-scoped client (`user-client.ts`). New code should call
  * `orgoFor(session)` from `@/lib/session` and use the `OrgoClient` it returns.

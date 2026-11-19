@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Real-browser driver for the task view, over the Chrome DevTools Protocol (no dependencies).
 // A headless Chrome stays up between calls, so a long run can be watched step by step.
 //

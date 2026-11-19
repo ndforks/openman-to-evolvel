@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Automation shapes shared by the server and the browser. No server imports here. */
 import { z } from "zod";
 

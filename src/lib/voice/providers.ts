@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Speech-to-text providers, one interface per job, picked by whether `ELEVENLABS_API_KEY` is set. Server only.
  *

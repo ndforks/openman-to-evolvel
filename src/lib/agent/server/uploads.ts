@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Files the user attaches to a message. The browser sends a file in parts of at most `UPLOAD_PART_BYTES` (each part
  * stays under the proxy's 10 MB body buffer), each part goes straight to the user's own computer through Orgo's file

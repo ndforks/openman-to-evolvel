@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Server-only database client (see docs/ARCHITECTURE.md, "Data").
  *

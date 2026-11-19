@@ -1,12 +1,15 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /**
  * The `/signin` page body: the same "Continue with Orgo" panel as the modal, full page. `?next=` (a same-site path,
  * checked here and again on the server) is where every path lands; the request gate sends signed-out visitors here
- * with the page they asked for. Already signed in: goes straight to `next` (the development bypass's dev user is not a
- * sign-in, so it may still sign in for real here).
+ * with the page they asked for. Already signed in on arrival: goes straight to `next` (the development bypass's dev user
+ * is not a sign-in, so it may still sign in for real here). A sign-in made on this page is left to the panel, which
+ * shows its own "signed in" step (and a workspace key's note) before it navigates.
  */
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "@/lib/supabase/client";
 import { safeNextPath } from "@/lib/supabase/config";
@@ -21,8 +24,11 @@ export function SignInPageBody() {
   const error = params.get("auth_error") ?? undefined;
   const source = params.get("source") ?? undefined;
 
+  const decided = useRef(false);
   useEffect(() => {
-    if (!loading && session && !session.dev) router.replace(next);
+    if (loading || decided.current) return;
+    decided.current = true;
+    if (session && !session.dev) router.replace(next);
   }, [loading, session, next, router]);
 
   return (

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * "Record a skill": shapes shared by the recorder in the browser, the `/api/recordings` routes and the server.
  * A recording is an ordered list of steps (what the user did on their computer) plus screenshots taken around them.

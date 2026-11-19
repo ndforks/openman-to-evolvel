@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The end of every way in: with an Orgo API key (handed over by Orgo's approval flow, pasted by the person, or this
  * machine's `ORGO_API_KEY` for local sign-in), learn who this is from Orgo, apply the invite list, save the account

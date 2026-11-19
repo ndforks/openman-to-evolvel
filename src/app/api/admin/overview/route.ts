@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { connection, NextResponse } from "next/server";
 import { listInvites, inviteGateOn } from "@/lib/session/invites";
 import { costStats } from "@/lib/observability/costs";

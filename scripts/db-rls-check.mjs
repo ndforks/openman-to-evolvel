@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Row-level security check against the real database, over plain HTTP (PostgREST).
 // With the right `x-om-secret` a request can write and read; with none or a wrong one it sees nothing
 // and cannot write. Cleans up the throwaway rows. Prints no secret.

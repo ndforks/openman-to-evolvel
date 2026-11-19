@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { SkillRecorder } from "@/components/computer/record/skill-recorder";

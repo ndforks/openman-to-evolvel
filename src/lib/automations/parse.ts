@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Advanced automation: turns a plain-language description into an automation draft (timing rules,
  * feed / webhook / email triggers and the instruction). Deterministic, so the same words always give

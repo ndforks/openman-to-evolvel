@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Who may see the operator page (`/app/admin`) and its API. Reuses the staging owner and invite mechanism
  * (`src/lib/session/invites.ts`) rather than adding a second one:

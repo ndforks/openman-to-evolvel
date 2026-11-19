@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Where each user's agent lives. Signed-in users run on the Hermes server of their own home
  * computer, read from their account (base URL plus the sealed key, opened with `@/lib/crypto`).

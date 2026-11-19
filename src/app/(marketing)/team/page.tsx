@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Teams page. The header, promo banner and footer come from the marketing layout. */
 import type { Metadata } from "next";
 import { brand } from "@/config/brand";

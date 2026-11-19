@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * What OpenMan shows about the person's Orgo account: the workspace it works in, who pays, whether setup can go ahead,
  * what a new agent computer costs (Orgo's prices from `plans.ts`) and the orgo.ai pages to manage it all. Server only.

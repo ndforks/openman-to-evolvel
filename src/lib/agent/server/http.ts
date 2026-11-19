@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Shared plumbing for the task route handlers: session, store, error shapes, body parsing. */
 import { connection, NextResponse, type NextRequest } from "next/server";
 import type { ZodType } from "zod";

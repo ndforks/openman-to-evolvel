@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Plumbing for `/api/websites/**`: session, the site row, and error shapes. Server only. */
 import { NextResponse, type NextRequest } from "next/server";
 import { jsonError, withSession, withStore } from "@/lib/agent/server/http";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Per-user settings: one JSON document. A patch is merged deeply; `null` removes a key. */
 import { db, fail } from "./client";
 

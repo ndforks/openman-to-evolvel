@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** The picked generator, shown just above the Home composer: its name, a remove button, and for slides the theme picker. */
 import { cn } from "@/components/ui/cn";
 import { CloseIcon } from "@/components/ui/icons";

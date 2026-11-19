@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The user's agent email: the personal address (one per user, changeable once every 7 days),
  * workflow addresses (each with a name and a default prompt), and up to 10 approved senders kept both

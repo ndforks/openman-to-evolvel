@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The connector catalog and API shapes. Client-safe (no secrets, no server imports).
  *

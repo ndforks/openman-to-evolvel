@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Cloud browser settings: the agent's browser on the user's home computer (Hermes `browser_exec`).
  *

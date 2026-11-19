@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Shared dialog frame: Radix focus handling, dimmed overlay, centred content box and an optional close button. */

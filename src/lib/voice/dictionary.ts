@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The user's voice input dictionary (Settings > General, pref `general.voiceDictionary`): names and terms
  * speech recognition often gets wrong. Used three ways: as a hint to the engine (Whisper's initial prompt,

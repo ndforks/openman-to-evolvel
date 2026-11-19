@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Icons for the Features page (lucide-react). They inherit the text colour. */
 import { Blocks, FileStack, Plug, Repeat, Search, Telescope, type LucideIcon } from "lucide-react";
 import type { CategoryId } from "./data";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: the /app shell. Sidebar, menus, popovers, top bar, composer. Never sends a task.
 // Sidebar metrics: 300 px wide, 52 px rail. Credits are dollars (a credit is a dollar).
 // Run: node scripts/qa.mjs scripts/qa-shell.mjs

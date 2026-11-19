@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Which of the computers already in a workspace can become the person's agent computer, instead of creating a new one.
  * Pure (no server imports): read by `GET /api/me/computers`, by `adoptComputer` and by the tests.

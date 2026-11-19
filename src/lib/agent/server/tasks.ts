@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Task operations used by the route handlers: create, list, read, and reach a task's live runtime. */
 import { brand, type ModeId } from "@/config/brand";
 import type { AgentEvent, CreateTaskInput, TaskReference, TaskRole } from "@/lib/agent/types";

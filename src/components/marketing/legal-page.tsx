@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Body of `/terms` and `/privacy`: the Markdown from `content/legal/`, in the docs typography. */
 import { notFound } from "next/navigation";
 import { loadLegal } from "@/app/docs/_lib/content";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Recording (or uploaded file) -> audio on the user's computer -> transcript -> a notes task. Server only.
  *

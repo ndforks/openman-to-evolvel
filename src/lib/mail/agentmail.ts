@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * AgentMail REST client: only the calls this app makes, with request and response shapes taken from
  * https://docs.agentmail.to/openapi.json (checked 2026-11-19). Base URL https://api.agentmail.to, /v0 paths.

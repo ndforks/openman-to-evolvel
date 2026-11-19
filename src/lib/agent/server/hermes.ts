@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Server-side client for the Hermes Agent API server (Nous Research), runs API.
  *

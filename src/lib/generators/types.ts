@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Generators: the kinds of work started from Home and the composer that end in a known artifact
  * (a slide deck, an analysis, a batch research table, audio). Client-safe: types only.

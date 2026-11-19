@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Encryption at rest for secrets this server keeps for a user (their Orgo key, their Hermes key).
  * AES-256-GCM with `APP_ENCRYPTION_KEY` (64 hex chars = 32 bytes). Server only.

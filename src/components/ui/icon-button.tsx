@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Square, borderless button that holds one icon. Give it an `aria-label`. */
 import type { ComponentProps } from "react";
 import { cn } from "./cn";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Settings → Email: the agent's email addresses (its personal address plus extra addresses), backed by `/api/mail`. */

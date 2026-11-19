@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * How many tasks one user may run at once. Every run of a user's tasks happens on that user's home computer (one
  * Hermes gateway), so the limit follows the computer's size, not a plan: each running task holds an agent, a shell

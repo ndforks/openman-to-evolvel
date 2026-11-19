@@ -1,9 +1,11 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // End-to-end test of agent email (AgentMail) and agent phone (AgentPhone) against the dev server on :3001.
 // No real vendor is called: a local fake server stands in for both APIs and records every request, and the
 // webhook secrets exist only in this process (handed to the dev server through the dev-only test-config routes,
 // which expire on their own and are cleared at the end).
 //
-//   node scripts/mail-phone-test.mjs            (needs NEXT_PUBLIC_AUTH_DISABLED=1 on the dev server)
+//   node scripts/mail-phone-test.mjs            (needs OPENMAN_DEV_BYPASS=1 on the dev server)
 //   node scripts/mail-phone-test.mjs --live     the same, then the opt-in live checks against the real vendors
 //                                               (scripts/vendors-live-test.mjs; needs the keys in .env.local)
 //
@@ -19,7 +21,7 @@ import { createClient } from "@supabase/supabase-js";
 import { loadEnv } from "./env.mjs";
 
 loadEnv();
-const APP = process.env.TEST_APP_URL || "http://localhost:3001";
+const APP = (process.env.TEST_APP_URL || process.env.BASE_URL || "http://localhost:3001").replace(/\/$/, "");
 const DOMAIN = process.env.AGENTMAIL_DOMAIN || "mail.example.com";
 const USER = `test-mailphone-${Date.now()}`;
 const AM_SECRET = `whsec_${randomBytes(24).toString("base64")}`;
@@ -187,7 +189,7 @@ try {
   const o1 = await api("POST", "/api/mail/test-config", { apiKey: "am_test_key", webhookSecret: AM_SECRET, baseUrl: fakeBase, domain: DOMAIN });
   const o2 = await api("POST", "/api/phone/test-config", { apiKey: "sk_test_key", webhookSecret: AP_SECRET, baseUrl: fakeBase, subAccountId: "sub_test1" });
   ok(o1.status === 200 && o2.status === 200, "dev-only test config accepted", JSON.stringify([o1, o2]));
-  if (o1.status !== 200) throw new Error("cannot continue without the test config (is NEXT_PUBLIC_AUTH_DISABLED=1?)");
+  if (o1.status !== 200) throw new Error("cannot continue without the test config (is OPENMAN_DEV_BYPASS=1?)");
 
   // ---------------------------------------------------------------- signature checks
   const ev0 = mailEvent(INBOX, { from: "x@y.z", subject: "s", text: "t", threadId: "thd_0", messageId: "<m0@y.z>" });

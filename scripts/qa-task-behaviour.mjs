@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: how a task behaves beyond one conversation, against the real backend and the dev computer's Hermes:
 // Chat mode (+ and / entry, no computer panel, one-way "Switch to Agent"), Branch, task references (chips, the agent
 // reads them through the omtools bridge), side chat, Plan mode (plan card, Confirm), the file viewer, parallel tasks

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Small labels: the serif "Pro" chip, the grey "Beta" tag and the blue promo pill. */
 import type { ReactNode } from "react";
 import { cn } from "./cn";

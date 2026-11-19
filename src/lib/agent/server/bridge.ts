@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The app's side of the `omtools` bridge (see `agent-tools-mcp.ts`). While a run has an `omtools` call open, the
  * relay reads that task's pending calls from `~/.openman/calls/` on the owner's home computer (through the owner's

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Shared contract between the UI and the agent backend. Read-only for everyone except the orchestrator. */
 import type { ModeId } from "@/config/brand";
 

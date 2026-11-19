@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: task collaboration with TWO real browser sessions against the dev server. The owner (dev user) makes a
 // cheap Lite task and invites a throwaway signed-in user through the Collaborate popover; the collaborator (a second
 // Chrome with its own session cookie, see scripts/second-session.mjs) finds it under "Shared with you", reads it,

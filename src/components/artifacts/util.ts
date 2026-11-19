@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Shared helpers for the artifact viewers: what kind of file something is, where its bytes are, and
  * parsers for the table formats (CSV/TSV, and XLSX read in the browser with no library: a ZIP reader on

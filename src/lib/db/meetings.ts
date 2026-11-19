@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Meetings: a recording or uploaded audio/video file on its way to a notes task (table `meetings`,
  * migration `supabase/migrations/20261119210000_meetings.sql`). The audio itself lives on the user's computer.

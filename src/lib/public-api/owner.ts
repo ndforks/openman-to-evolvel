@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Background access to a user's tasks (no request from them): their store with the agent connection primed. */
 import { primeConnection } from "@/lib/agent/server/connection";
 import { refreshOwner } from "@/lib/agent/server/relay";

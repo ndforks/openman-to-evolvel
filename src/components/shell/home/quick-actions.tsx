@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The cards under the Home headline and the "More ideas" panel. Generator entries appear only when the generator works for
  * this user (`useGeneratorAvailability`); each one prefills the composer and picks its generator.

@@ -8,7 +8,7 @@
 
 <!-- Commands you ran and what you checked in the app. -->
 
-- [ ] `npx tsc --noEmit -p .`
+- [ ] `npm run typecheck`
 - [ ] `npx eslint src`
 - [ ] Offline tests (`node scripts/safe-fetch-test.mjs`, `node src/lib/observability/redact.test.mjs`)
 - [ ] Tried the change in a running app

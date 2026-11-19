@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** "… in a team": five pill tabs over one panel with copy on the left and a mock workspace on the right. */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Model spend per task. The relay stores Hermes' token usage on every `run.completed` event
  * (`src/lib/agent/server/relay.ts`, `usageOf`); this prices it at Orgo's rate card and stores the result in

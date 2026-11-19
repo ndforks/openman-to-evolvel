@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Inbound SMS and calls on the agent's number (AgentPhone webhooks, verified and de-duplicated by the route).
  *

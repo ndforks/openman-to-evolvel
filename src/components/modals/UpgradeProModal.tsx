@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** "Upgrade": Orgo's three plans side by side, with a monthly / yearly switch and rows for teams and pay-as-you-go. */

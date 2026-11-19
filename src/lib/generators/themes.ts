@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The slide themes. Original designs: each is one stylesheet the server writes to `slides/theme.css`
  * when a deck starts, with a shared set of layout classes the agent composes slides from. System fonts

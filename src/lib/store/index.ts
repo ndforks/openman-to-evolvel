@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Picks the task store for a session: the database, scoped to `session.userId`. The local file
  * store is kept only for the dev user (`session.dev`) while the database is unconfigured or unreachable.

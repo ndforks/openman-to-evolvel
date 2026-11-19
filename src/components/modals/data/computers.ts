@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Presets, plans and options for the "New cloud computer" and "Customize" modals.
  * Every option and price is Orgo's, read from `@/lib/orgo/plans`.

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Sign-in start budgets, the post-sign-in redirect, CSRF, the device-code cookie binding, the dev-identity guard,
 // automations tokens and usage caps (review #1, #5, #7, #9, #16, #17, #18, CSRF, #3).
 //   node scripts/auth-hardening-test.mjs            (unit + database; never calls Orgo)
@@ -10,7 +12,7 @@ import { loadEnv } from "./env.mjs";
 loadEnv();
 const root = path.resolve(import.meta.dirname, "..");
 const jiti = createJiti(import.meta.url, { alias: { "@": path.join(root, "src") }, interopDefault: true });
-const BASE = process.env.APP_URL ?? "http://127.0.0.1:3001";
+const BASE = (process.env.BASE_URL ?? process.env.APP_URL ?? "http://127.0.0.1:3001").replace(/\/$/, "");
 
 let failures = 0;
 const ok = (cond, label) => {
@@ -84,7 +86,10 @@ ok((await poll.json()).status === "expired", "poll without the starting browser'
 
 // ---- #9 / #16 dev identity
 const sessionSrc = readFileSync(path.join(root, "src/lib/session/index.ts"), "utf8");
-ok(/NODE_ENV !== "production"/.test(readFileSync(path.join(root, "src/lib/supabase/config.ts"), "utf8")), "auth-disabled switch ignored in production");
+{
+  const bp = await jiti.import(path.join(root, "src/lib/session/bypass.ts"));
+  ok(bp.devBypassEnabled({ NODE_ENV: "production", OPENMAN_DEV_BYPASS: "1" }) === false && /devBypassEnabled/.test(readFileSync(path.join(root, "src/lib/supabase/config.ts"), "utf8")), "development bypass ignored in production");
+}
 ok(/devRequestAllowed/.test(sessionSrc) && /revokedBefore[^\n]*\) return null/.test(sessionSrc), "dev session only for loopback requests; a revoked cookie never falls back to dev");
 const viaHost = (host, extra = {}) =>
   new Promise((resolve, reject) => {

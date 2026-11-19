@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Custom connectors (MCP servers, APIs) and per-project connector selection. Server only.
  * App sign-ins themselves live in Orgo (Composio, per computer) and are never stored here.

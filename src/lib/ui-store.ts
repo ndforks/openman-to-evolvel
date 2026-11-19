@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Tiny global UI state shared across areas: which modal or panel is open. */
 import { create } from "zustand";
 

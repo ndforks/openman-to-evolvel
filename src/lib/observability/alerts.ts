@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Operator alerts, checked on every scheduler tick (`/api/cron/tick`) and on every deep health check (which is how
  * a dead tick is noticed: point an uptime monitor at `/api/health/deep`). An alert becomes an in-app notification

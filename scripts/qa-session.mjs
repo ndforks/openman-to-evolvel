@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Mints a session cookie for a throwaway QA user (a second signed-in person, e.g. a collaborator), the same way
 // the app seals its own (`src/lib/session/cookie.ts`). Reads SESSION_SECRET from .env.local; prints nothing secret.
 import { createCipheriv, createHash, randomBytes } from "node:crypto";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Full-stack features of a site, all on the user's own Orgo computer. Server only.
  * - Database browser: one parameterised helper (`kit/dbtool.py`) runs every read and write against the site's SQLite file.

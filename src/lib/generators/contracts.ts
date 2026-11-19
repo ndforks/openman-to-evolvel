@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The prompt contracts: what a generator task's agent is told, as run instructions (never shown as the
  * user's message). Each one fixes the output contract: the folder, the manifest the server parses, and

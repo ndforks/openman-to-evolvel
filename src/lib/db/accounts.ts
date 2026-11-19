@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Accounts: one row per Orgo user, keyed by the Orgo user id. Keys are stored sealed (see `@/lib/crypto`). */
 import { db, fail, iso } from "./client";
 

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: projects on /api/projects. Creates throwaway projects (named "QA ..."), exercises the sidebar, the
 // create dialog, the "Project created" dialog, the project page (instructions, files, composer), pin, drag reorder,
 // rename and delete, and removes everything it made. Never sends a task.

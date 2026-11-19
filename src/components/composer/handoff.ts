@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Lets another page hand a prompt to the Home composer.
  * The text waits in sessionStorage, so it survives the navigation and a sign-in round trip.

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Usage caps for operator-paid vendors (limits in `src/config/usage-limits.ts`). `consumeUsage` atomically adds to
  * the user's daily and monthly counters in the database (`usage_consume`) and throws `UsageLimitError` (429) when

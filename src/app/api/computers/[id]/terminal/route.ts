@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { findChangeable } from "@/lib/agent/server/cloud";
 import { mintTicket } from "@/lib/agent/server/terminal";

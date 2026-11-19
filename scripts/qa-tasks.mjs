@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: task rows and the task header against the real backend. Creates ONE cheap task (a one-word reply)
 // and a throwaway project, exercises every menu item on them, and deletes both at the end. Other tasks are never touched.
 // Run: node scripts/qa.mjs scripts/qa-tasks.mjs      (BASE_URL defaults to http://localhost:3001)

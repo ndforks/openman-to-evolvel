@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Monthly / Annually segmented control above the plan cards. Annual is Orgo's yearly price: twelve months less 20%. */

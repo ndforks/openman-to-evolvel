@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Dark strip under the header: says what the product runs on and links to the guide. */
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";

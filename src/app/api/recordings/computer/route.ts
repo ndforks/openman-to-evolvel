@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { ok, route } from "@/lib/recording/http";
 import { homeView } from "@/lib/recording/server";
 

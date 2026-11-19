@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The relay owns every live task on the server. For each run it consumes the agent's event
  * stream (Hermes or the mock), turns each event into an `AgentEvent` with an increasing `seq`,

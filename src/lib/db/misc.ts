@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Repositories for automations (and their runs), mailboxes, phone numbers and websites.
  * Rows come back camel-cased; every call is scoped by `userId`.

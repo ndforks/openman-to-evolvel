@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Project files, fresh instructions, self-updating projects, the idle-folder sweep, run slots and attachment targets,
 // for real on the dev computer (cheap Lite runs). Needs the dev server on :3001 with the dev user.
 //   node scripts/workspace-test.mjs [files|proposal|sweep|queue|uploads ...]   (all by default)

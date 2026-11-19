@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The user's personalization profile and the knowledge switch, stored in the per-user settings
  * document (`settings.data.personalization`). One source of truth for the Settings tab, the

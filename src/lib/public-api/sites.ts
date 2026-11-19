@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { Website } from "@/lib/websites/types";
 
 export function websiteView(w: Website) {

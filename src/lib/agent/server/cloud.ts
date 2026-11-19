@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * One cloud computer in depth, for its detail page: details, rename, live readings, backups and restore,
  * resize within the catalog, SSH. Everything acts as the signed-in user with their Orgo key, inside their

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** The little book cover drawn on skill cards: two colours and the title, generated from the skill. */
 import { cx } from "../cx";
 

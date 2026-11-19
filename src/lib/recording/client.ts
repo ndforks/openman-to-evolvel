@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Browser helpers for `/api/recordings`. */
 import type { ComputerView } from "@/lib/agent/types";
 import type { RecordedStep, Recording, RecordingWithSkill } from "./types";

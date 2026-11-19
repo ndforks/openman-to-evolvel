@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The official skill library: a curated set of skills Hermes and its community already ship, installed through
  * Hermes' own installer (`hermes skills install <identifier>`). Nothing here is hosted by us.

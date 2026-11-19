@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: every route loads with no console error or hydration warning, serif headings render in Libre Baskerville
 // and body text in the system font. Run: node scripts/qa.mjs scripts/qa-routes.mjs
 const tasks = await (await fetch((process.env.BASE_URL ?? "http://localhost:3001") + "/api/tasks")).json().catch(() => ({ tasks: [] }));

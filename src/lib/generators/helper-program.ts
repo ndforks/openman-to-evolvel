@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The small program the server (and the agent) runs on the user's computer for generator work:
  * set up the Python environment, read a task's generator state, bundle a deck for the viewer,

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Agent email data: mailboxes (personal and workflow addresses), approved senders, the mail log,
  * thread-to-task links, the workflow operation counter and webhook de-duplication.

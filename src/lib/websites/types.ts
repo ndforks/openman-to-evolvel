@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Website shapes shared by the server, the routes and the browser. No server imports here. */
 
 /** Who may open the published site. Maps to Orgo access modes: public = link, invite = people, private = team. */

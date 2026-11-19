@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The agent's phone number: provision (one AgentPhone agent in webhook voice mode plus one number per user),
  * release, approved callers, and outbound SMS that only goes out after an explicit approval.

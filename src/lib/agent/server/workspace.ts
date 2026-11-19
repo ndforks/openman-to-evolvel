@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * A task's workspace on the computer it works on:
  * - project knowledge files, copied into the task's folder before its first run (`placeProjectFiles`), from the

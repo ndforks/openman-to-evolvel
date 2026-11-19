@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Bottom row of the sidebar: who is signed in, the "use anywhere" shortcut and the notifications bell. */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * What the `/api/computers` routes do, on top of the raw Orgo client: turn Orgo's objects into the
  * shape the UI draws, keep every change inside the configured workspace, and never touch the

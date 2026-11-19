@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * A tiny MCP server (Streamable HTTP, stateless JSON responses) that lets the user's Hermes create,
  * list, update and delete their automations. Served at `/api/automations/mcp`.

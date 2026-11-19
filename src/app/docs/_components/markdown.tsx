@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Renders a docs page's Markdown with anchored headings, site links through next/link and styled tables and code. */
 import type { ReactNode } from "react";
 import Link from "next/link";

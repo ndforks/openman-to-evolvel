@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** What `/api/computers` sends to the browser. Shared by the route handlers and the UI. No secrets live here. */
 
 /** Simplified lifecycle state the UI draws. `raw` on the computer keeps Orgo's own word. */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** What this app keeps about skills: skills attached to projects, and "Build from a task" requests. Skills themselves live on the computer. */
 import { db, fail, iso } from "./client";
 

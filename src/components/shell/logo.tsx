@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** The product mark and wordmark from the brand config. */
 import { brand } from "@/config/brand";
 import { BrandIcon } from "@/components/ui/brand-icon";

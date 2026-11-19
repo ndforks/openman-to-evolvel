@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Link and image targets from agent- or user-written content: only http(s), mailto, same-page anchors, relative
  * paths and (for images) data:image. Everything else (javascript:, vbscript:, data:text/html, file:, blob: from

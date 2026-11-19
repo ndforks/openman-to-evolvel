@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Inbound agent email. The webhook route verifies the signature and claims the event id, then hands the
  * event here (after acknowledging). This module:

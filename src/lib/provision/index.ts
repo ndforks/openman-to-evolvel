@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The user's home computer: one Linux computer in their own Orgo workspace, made from Orgo's Hermes template,
  * set up by Orgo (models through Orgo's proxy, billed to the user), then by us (Hermes API server with a

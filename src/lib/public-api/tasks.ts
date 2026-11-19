@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Task operations behind `/api/v1/tasks`, built on the same server functions the web app uses. */
 import { z } from "zod";
 import { brand } from "@/config/brand";

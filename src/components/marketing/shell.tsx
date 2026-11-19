@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Frame for every marketing page: sticky header, promo banner, page content, footer and the sign-in modal. */
 import { Suspense, type ReactNode } from "react";
 import { libreBaskerville } from "./fonts";

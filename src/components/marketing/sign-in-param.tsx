@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Opens the sign-in modal when the URL carries `?signin=1` (optionally with `next` and `auth_error`). */

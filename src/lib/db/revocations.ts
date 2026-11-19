@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Revocation times per user, in their own table (`revocations`), never in the user-editable settings document.
  * Kept when an account is deleted, so cookies and tokens issued before the deletion stay refused. Server only.

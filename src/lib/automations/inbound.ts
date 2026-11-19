@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Inbound event triggers: webhooks (`/api/hooks/[token]`) and email (called by the mail area). */
 import { getAccount } from "@/lib/db/accounts";
 import { timingSafeEqual } from "node:crypto";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * How a tool call is described on screen: which app it belongs to, the sentence for the row in the work log,
  * the icon, and the one-line summary of a group ("Looked up 2 queries · Ran 1 command").

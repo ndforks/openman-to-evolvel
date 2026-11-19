@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Who is asking, and an Orgo client acting as them. Server only.
  *
@@ -52,7 +54,7 @@ const LOOPBACK = new Set(["127.0.0.1", "::1", "::ffff:127.0.0.1", "localhost"]);
  * With the gate off, the dev identity is handed only to requests addressed to and coming from this machine.
  * Next fills `X-Forwarded-For` with the socket address when the client sent none, so a browser elsewhere on the
  * network (or a DNS-rebinding page, whose Host is not loopback) does not get the owner's session. This is a
- * backstop, not a boundary: run the dev server with `-H 127.0.0.1` (see docs/SECURITY-REVIEW.md #4).
+ * backstop, not a boundary: run the dev server with `-H 127.0.0.1` (see docs/security-model.md).
  */
 async function devRequestAllowed(): Promise<boolean> {
   if (!devUserEnabled()) return false;

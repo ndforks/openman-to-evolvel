@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Puts a secret on a user's computer as a file instead of inside a bash command body (Orgo echoes command bodies
  * and may log them). The bytes go through Orgo's file transfer: `POST /files/uploads` (a presigned PUT straight to

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** "Sign out everywhere": the time before which session cookies count as signed out. Server only. */
 import { getRevocation } from "@/lib/db/revocations";
 

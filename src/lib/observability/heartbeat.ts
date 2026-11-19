@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Heartbeats of periodic jobs (`ops_heartbeats`): the scheduler tick writes one per pass. Server only. */
 import { db, fail } from "@/lib/db/client";
 

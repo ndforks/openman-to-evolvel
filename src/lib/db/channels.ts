@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Chat-app links ("Reach <brand> from anywhere"): one row per user and channel. Server only.
  * The live truth is on the user's computer (Hermes' own `.env` and gateway state); this row remembers what was

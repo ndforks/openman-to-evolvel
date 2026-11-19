@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** One docs page: sidebar, title, the Markdown body, previous / next links and the "On this page" list. */
 import type { Metadata } from "next";
 import Link from "next/link";

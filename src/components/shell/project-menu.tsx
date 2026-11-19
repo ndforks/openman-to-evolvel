@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** The "..." menu of a project (sidebar row, project page header) and its rename and delete dialogs. */

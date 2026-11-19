@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Routes the sidebar pages link to. */
 export const NEW_TASK_HREF = "/app";
 export const AUTOMATIONS_HREF = "/app/automations";

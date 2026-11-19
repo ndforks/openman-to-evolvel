@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Invite gate (staging): with `INVITE_GATE=1` a signed-in Orgo user is admitted only when their Orgo user id or
  * email is in the `invites` table. The first account to sign in to an empty list becomes its owner. The list lives

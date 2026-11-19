@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Projects and their reference files. */
 import { db, DbError, fail, iso } from "./client";
 

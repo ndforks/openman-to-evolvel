@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** The frame around every artifact viewer: a header with the file name, size and download, plus loading and error states. */

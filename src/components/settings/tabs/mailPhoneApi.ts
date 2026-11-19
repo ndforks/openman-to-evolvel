@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Browser-side types and fetch helpers for the Mail, Email and Phone settings tabs (`/api/mail`, `/api/phone`). */

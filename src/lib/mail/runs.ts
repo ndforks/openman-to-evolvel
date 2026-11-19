@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Starts and continues tasks for a user without a request from them (inbound mail, SMS, calls),
  * and waits for the run a message started to finish. Uses the agent server's own functions only.

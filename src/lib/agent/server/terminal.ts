@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * A web terminal for a cloud computer, proxied by this server so the browser never holds a credential.
  *

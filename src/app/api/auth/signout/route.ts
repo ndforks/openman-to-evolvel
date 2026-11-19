@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { json } from "@/lib/orgo/http";
 import { SESSION_COOKIE } from "@/lib/session/cookie";
 

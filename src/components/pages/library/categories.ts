@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** File type to Library tab. Shared by the server loader and the page. */
 import type { LibraryCategory } from "../data/library";
 

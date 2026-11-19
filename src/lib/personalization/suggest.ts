@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * One cheap model call through the user's agent (Hermes' stateless `/v1/chat/completions`, Haiku via
  * Orgo's proxy) that turns text into proposed knowledge entries. Used for "suggested knowledge" after a

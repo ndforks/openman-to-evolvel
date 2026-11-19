@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Agent phone data: numbers, SMS records (including outbound sends waiting for approval) and calls.
  * Server only. Webhook lookups by vendor number id return the owner; everything after is scoped by it.

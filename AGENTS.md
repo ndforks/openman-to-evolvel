@@ -39,7 +39,7 @@ user's Orgo computer, reached over HTTP from the server.
 
 ```bash
 npm run dev                        # dev server on 127.0.0.1:3000
-npx tsc --noEmit -p .              # type-check
+npm run typecheck                  # type-check (next typegen + tsc; `npx tsc --noEmit -p .` once .next exists)
 npx eslint src                     # lint (or pass the files you changed)
 node scripts/safe-fetch-test.mjs   # offline tests (CI runs these)
 node src/lib/observability/redact.test.mjs

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Automations and their runs. User-facing functions take the owner's user id and scope by it; the
  * functions marked "engine" read across users and are only called by the tick and the inbound hooks.

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The request shape of attachments on a new task (shared by the task, website and generator routes): a link, or a
  * file already uploaded to the user's computer through `POST /api/tasks/uploads`.

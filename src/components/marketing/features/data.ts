@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Every card on the Features page, grouped by category. The search field filters this list. */
 
 export type CategoryId = "build" | "create" | "research" | "automate" | "connectors";

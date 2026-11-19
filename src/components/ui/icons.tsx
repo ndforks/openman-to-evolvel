@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Icons of the app, from lucide-react (24 px grid) behind one set of props. A couple of trivial glyphs (play,
  * spinner) are drawn here. All inherit `currentColor`; size them with the `size` prop.

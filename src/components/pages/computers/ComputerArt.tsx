@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Header art of the capability cards on the Computers page: a tinted panel with one large line icon per preset. */
 import { AppWindow, Box, Code2, Gamepad2, Smartphone, Timer, type LucideIcon } from "lucide-react";
 import type { ComputerPresetId } from "../data/computers";

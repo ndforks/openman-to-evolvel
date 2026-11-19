@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Which screen a task's computer panel streams: the computer the task was given, or the home computer the
  * agent works on. The URL carries that computer's VNC password, so only the task's owner may get it.

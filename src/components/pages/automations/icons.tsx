@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Icons shared by the two Automations screens (lucide glyphs). */
 import { CalendarClock, ChevronsDown, Waypoints, Zap } from "lucide-react";
 import type { AutomationStart } from "../data/automations";

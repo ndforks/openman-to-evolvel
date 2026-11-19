@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: marketing site. Header menus, sign-in modal, docs, legal pages, redirects, robots and sitemap, and no dead controls.
 // Run: node scripts/qa.mjs scripts/qa-marketing.mjs        (AUDIT=1 also clicks every control on every page)
 const dlg = () => p.has('[role="dialog"]');

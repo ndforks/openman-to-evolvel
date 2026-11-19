@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: flows that cross areas. Share panel, personalization, plugins and connectors, prompt hand-off, library.
 // Run: node scripts/qa.mjs scripts/qa-extras.mjs     (SEND=1 also sends one real task from the landing page)
 const dlg = () => p.has('[role="dialog"]');
@@ -35,7 +37,8 @@ await p.goto("/app/personalization", 2500); await p.click("main input >> 0", 200
 /* Plugins, Settings > Connectors and the composer menu share the added connectors */
 await p.goto("/app/plugins", 3000);
 // Connectors are Orgo's (Composio underneath): "Connect" opens the app's connector dialog; finishing needs a real sign-in.
-await step("Plugins: Connect Gmail opens the Gmail connector dialog", async () => { await p.click('[aria-label="Connect Gmail"]', 900); const t = await p.eval(`document.querySelector('[role="dialog"]')?.innerText ?? ''`); await p.press("Escape"); await sleep(300); return /Gmail/.test(t) && !(await dlg()); });
+// Gmail may already be connected on the account under test; its button then reads "Gmail is connected. Manage".
+await step("Plugins: Connect Gmail opens the Gmail connector dialog", async () => { await p.click('[aria-label="Connect Gmail"], [aria-label="Gmail is connected. Manage"]', 900); const t = await p.eval(`document.querySelector('[role="dialog"]')?.innerText ?? ''`); await p.press("Escape"); await sleep(300); return /Gmail/.test(t) && !(await dlg()); });
 await step("Plugins: Manage Connectors opens Settings > Connectors", async () => { await p.click("text=Manage Connectors", 900); const t = await p.eval(`document.querySelector('[role="dialog"]')?.innerText ?? ''`); await p.press("Escape"); return /Connectors[\s\S]*Browse Connectors/.test(t); });
 await step("Plugins: Create menu offers Custom MCP and Custom API; each opens the custom connector form", async () => { await p.click('[aria-label="Create"]', 500); const items = await p.eval(`[...document.querySelectorAll('[role="menuitem"]')].map(i => i.innerText.split('\\n')[0])`); await p.click('[role="menu"] [role="menuitem"] >> 0', 800); const t = await p.eval(`document.querySelector('[role="dialog"]')?.innerText ?? ''`); await p.press("Escape"); return items.includes("Custom MCP") && items.includes("Custom API") && /Add a custom connector/.test(t); });
 await step("Composer connectors menu lists Gmail (a switch once connected, Connect before)", async () => { await p.goto("/app", 3000); await p.click('[aria-label^="Connectors"]', 600); const t = await p.eval(`[...document.querySelectorAll('[role="dialog"]')].map(d => d.innerText).join(' ')`); await p.press("Escape"); return /Gmail/.test(t); });

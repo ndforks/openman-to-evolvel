@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Reads the docs' Markdown from `content/docs/` on the server and fills in brand names and catalog prices.
  *

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Links and images in agent-written content, and the pages that show it (review: XSS in Markdown, previews, share, docs).
 //   node scripts/xss-test.mjs
 import path from "node:path";
@@ -26,7 +28,7 @@ ok(/safeHref/.test(src("src/components/artifacts/basic-viewers.tsx")), "artifact
 ok(/sandbox="/.test(src("src/components/pages/websites/SiteDashboard.tsx")), "site dashboard preview iframe is sandboxed");
 ok(!/allow-top-navigation/.test(src("src/components/pages/websites/SiteDashboard.tsx")), "preview cannot navigate the top window");
 
-const BASE = process.env.APP_URL ?? "http://127.0.0.1:3001";
+const BASE = (process.env.BASE_URL ?? process.env.APP_URL ?? "http://127.0.0.1:3001").replace(/\/$/, "");
 const res = await fetch(`${BASE}/`);
 const csp = res.headers.get("content-security-policy") ?? "";
 ok(/frame-ancestors 'none'/.test(csp) && res.headers.get("x-frame-options") === "DENY", "pages cannot be framed");

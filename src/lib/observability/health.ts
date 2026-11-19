@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The deep health check (`GET /api/health/deep`, `/app/admin`). Every figure is a count or an age; no row content,
  * no personal data, no secret values (configuration is reported by name only). Server only.

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Structured operator log. One call, one JSON line on stdout; warnings and errors also become a row in `ops_events`
  * (read by `/app/admin`, the deep health check and the alerts). Server only.
@@ -141,4 +143,9 @@ export async function timedEvent<T>(event: string, fields: Omit<LogFields, "dura
     await logEvent("error", `${event}.failed`, { ...fields, durationMs: Date.now() - t, error: err });
     throw err;
   }
+}
+
+/** The start-up line (called from `src/instrumentation.ts` on the Node runtime only). */
+export function logServerStart(): Promise<void> {
+  return logEvent("info", "server.start", { data: { node: process.version, env: process.env.NODE_ENV ?? "unknown" } });
 }

@@ -30,7 +30,12 @@ rest (`APP_ENCRYPTION_KEY`, AES-256-GCM) in the `accounts` table so background w
 phone) can act for the user, and sets an encrypted, HttpOnly session cookie (`SESSION_SECRET`). The cookie never
 carries the Orgo credential. See the README's "Sign in with Orgo" section for the flow and its settings.
 
-Users sign in with their Orgo account through Orgo's device approval flow, or with an Orgo API key. The server stores the key encrypted (AES-256-GCM) and acts on that user's own Orgo workspace, computers and credits.
+There are two ways in, and both end in the same place (`src/lib/session/sign-in.ts`): Orgo's device approval flow
+(`/api/auth/orgo/start` and `/poll`; Orgo hands over a key it minted for OpenMan) or a pasted Orgo API key
+(`/api/auth/orgo/key`). The key is checked with Orgo (`identify.ts`; a workspace-scoped key is accepted only when its
+workspace has a single member), stored sealed, and the workspace OpenMan works in is remembered on the account
+(`/api/me/workspaces`). Local sign-in (`OPENMAN_LOCAL_SIGNIN=1`) is the pasted-key path with this machine's
+`ORGO_API_KEY`, offered only on a loopback-bound server (`bypass.ts`).
 
 For local development, `OPENMAN_DEV_BYPASS=1` turns the session into a development user built from `ORGO_API_KEY` in
 `.env.local`. It works only under `next dev` for loopback requests; a production server with it set refuses to start.

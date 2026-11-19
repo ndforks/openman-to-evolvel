@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Tasks made from other tasks:
  * - Branch: a new task that keeps the conversation and files up to one reply (Hermes session fork when the branch

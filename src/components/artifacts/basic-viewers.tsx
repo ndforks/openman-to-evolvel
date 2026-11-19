@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Viewers for the simple file kinds: Markdown, code and text, PDF, images, audio, video, web pages, and anything else. */

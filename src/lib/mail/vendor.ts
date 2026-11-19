@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Vendor settings for AgentMail and AgentPhone, read from the environment:
  *   AGENTMAIL_API_KEY, AGENTMAIL_WEBHOOK_SECRET, AGENTMAIL_BASE_URL (optional, default https://api.agentmail.to)

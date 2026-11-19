@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** What the composer remembers between visits: agent mode, effort, speed, where the task runs and which connectors are on. */

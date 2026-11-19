@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** A small ZIP writer (deflate, no ZIP64) for the data export. Server only. */
 import { crc32, deflateRawSync } from "node:zlib";
 

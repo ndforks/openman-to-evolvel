@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Structured output: a task created with `output_schema` (a JSON Schema) returns a validated object.
  *

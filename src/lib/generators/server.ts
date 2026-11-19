@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Generators, server half: which generators this user can use, starting a generator task, and reading
  * what a generator task produced (state, slide deck bundle, exports, files in its folder).

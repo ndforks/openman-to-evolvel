@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { connection, NextResponse } from "next/server";
 import { checkStaleTick } from "@/lib/observability/alerts";
 import { cronAuthorized } from "@/lib/observability/cron-auth";

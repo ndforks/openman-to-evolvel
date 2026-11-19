@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The app's task tools, answered from the app's own data and scoped to one owner and one task:
  * - task references: `task_outline`, `task_search`, `task_read` over the tasks the user referenced in this task;

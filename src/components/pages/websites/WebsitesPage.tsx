@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 import { CloudUpload, TrendingUp, WandSparkles, X } from "lucide-react";

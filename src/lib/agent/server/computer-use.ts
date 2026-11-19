@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Computer Use permissions: per user, per desktop app, "always" (allow without asking) or "never"
  * (refuse without asking). Apps with no entry are asked about the first time the agent uses them in a task,

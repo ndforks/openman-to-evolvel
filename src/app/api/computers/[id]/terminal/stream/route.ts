@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { openTerminalStream, redeemTicket, terminalSocketUrl } from "@/lib/agent/server/terminal";
 import { NOT_CONFIGURED, computerScope, json, withUser } from "@/lib/orgo/http";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Runs a bash command on the dev computer (ORGO_COMPUTER_ID) with the dev Orgo key. Prints the output only.
 //   node scripts/devbash.mjs '<command>'
 import path from "node:path";

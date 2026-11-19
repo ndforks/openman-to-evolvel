@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Developer credentials for this app: API keys (only a SHA-256 hash is stored; the key is shown once)
  * and webhook endpoints (the signing secret is sealed with `APP_ENCRYPTION_KEY`). Tables `api_keys` and

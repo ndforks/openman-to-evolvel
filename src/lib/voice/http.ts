@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Error shaping shared by the `/api/voice` routes. Server only. */
 import { NextResponse } from "next/server";
 import { jsonError } from "@/lib/agent/server/http";

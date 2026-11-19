@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Preview of one Library file: images, video, audio, PDF and HTML inline; text and code as plain text. */

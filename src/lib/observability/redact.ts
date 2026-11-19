@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Redaction pass for everything the operator log writes (stdout and `ops_events`). Drops any field whose name looks
  * like a credential and masks values that look like keys, tokens, passwords, cookies or email addresses, wherever

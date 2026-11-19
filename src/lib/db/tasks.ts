@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Tasks, their ordered event logs and the files they produced. Every function takes the owner's
  * user id and scopes by it. `src/lib/store/db-store.ts` wraps these as the relay's `Store`.

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Websites the agent builds on the user's computer. Every query is scoped by `user_id`. */
 import type { SiteSchedule, SiteSecret, SiteStatus, SiteTemplate, SiteVisibility, Website } from "@/lib/websites/types";
 import { db, fail, iso } from "./client";

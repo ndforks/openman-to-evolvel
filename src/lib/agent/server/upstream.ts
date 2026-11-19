@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * What the relay needs from an agent backend. Two implementations speak it: the real Hermes
  * API server and a scripted mock that emits the same event shapes, so one relay serves both.

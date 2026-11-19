@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import { NextResponse, type NextRequest } from "next/server";
 import { jsonError, withSession } from "@/lib/agent/server/http";
 import { elevenLabsKey, REALTIME_MODEL, REALTIME_URL, singleUseToken } from "@/lib/voice/elevenlabs";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Analytics of the published site: page views and visitors per day, top sources and pages. Logged by the site's own server on the user's computer. */

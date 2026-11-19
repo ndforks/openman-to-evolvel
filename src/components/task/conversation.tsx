@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** The message column: user bubbles and agent turns (header, status line, narration, work log, cards, result). */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Database-backed store for one user. Every query is scoped by that user's id. */
 import type { AgentEvent } from "@/lib/agent/types";
 import {

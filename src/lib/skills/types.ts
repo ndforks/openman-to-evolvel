@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Skill shapes shared by the API routes and the UI. A skill lives on the user's computer, in Hermes' skills folder. */
 
 /** Where an installed skill came from, as Hermes tracks it. */

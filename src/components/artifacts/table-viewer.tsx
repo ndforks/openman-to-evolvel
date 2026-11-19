@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** Tables (CSV, TSV, XLSX): sheet tabs, a filter box, and sort by any column. */

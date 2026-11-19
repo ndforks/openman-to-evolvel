@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Per-user caps for everything this server pays a vendor for on the user's behalf (not billed to the user's Orgo
  * account): phone numbers, SMS, calls, agent email, live and batch transcription, speech and sound effects with the

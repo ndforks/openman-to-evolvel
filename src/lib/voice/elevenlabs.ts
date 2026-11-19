@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * ElevenLabs Scribe, confirmed against https://elevenlabs.io/docs (llms.txt, read 2026-11-19) and run against the live
  * API the same day (`node scripts/voice-live-test.mjs`): batch with diarization returns `speaker_0`/`speaker_1` words,

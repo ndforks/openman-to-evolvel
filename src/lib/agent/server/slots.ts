@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Run slots: at most N runs of one user's tasks at once (N from `src/lib/limits/concurrency.ts`, by the size of the
  * user's home computer). A run that finds no free slot waits in a first-come, first-served queue and starts by

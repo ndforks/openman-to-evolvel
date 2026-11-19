@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { requireComputer, readForce } from "@/lib/channels/route-helpers";
 import { pollTelegram, startTelegram, unlinkTelegram } from "@/lib/channels/server";

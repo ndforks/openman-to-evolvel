@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The MCP server (stdio, Python standard library only) that the agent's "remote" Hermes profile runs on the
  * home computer. Its tools (`mcp__omtarget__shell`, `write_file`, `screenshot`, `click`...) act on another of

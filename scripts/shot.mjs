@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Usage: node shot.mjs <url> <out.png> [waitMs] [width] [height] [--boxes=sel1|sel2]
 //   Takes a headless Chrome screenshot of <url> and prints any console errors.
 //   --boxes      prints the CSS box (x,y,w,h) of the first visible match of each selector.

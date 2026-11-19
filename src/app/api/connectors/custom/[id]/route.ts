@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 import type { NextRequest } from "next/server";
 import { deleteCustomConnector, getCustomConnector, listCustomConnectors } from "@/lib/db/connectors";
 import { homeComputerId, syncApisOnComputer, writeHermesMcp } from "@/lib/connectors/server";

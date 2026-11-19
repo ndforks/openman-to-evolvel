@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The app's task tools on the user's home computer: a stdio MCP server (`omtools`, Python standard library only)
  * and the `om-chat` Hermes profile (Chat and Plan modes: web, vision, file, clarify, skills and these tools; no

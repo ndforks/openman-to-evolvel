@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Route plumbing shared by `/api/mail`, `/api/phone` and the two vendor webhooks. */
 import { NextResponse, type NextRequest } from "next/server";
 import { jsonError, readBody, withSession } from "@/lib/agent/server/http";

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 "use client";
 
 /** One plan card: name, Orgo's price for the chosen period, tagline, a button to Orgo's billing page and what the plan includes. */

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The site-building contract: instructions sent with every run of a website task (the same channel
  * as project instructions, `task.meta.instructions`), and the marker file the agent writes so the

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * What the routes and the agent tool call: validate input, store it with its derived fields
  * (next run, poll time, webhook token, sealed header values) and shape it for the browser.

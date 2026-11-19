@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Scenario: in a real browser, (1) three tasks at once with a limit of 2: the sidebar marks the third "Queued" and the
 // task page says so, then it starts by itself; (2) a project task proposes project changes: the card shows the diff and
 // "Apply changes" applies them. Cheap Lite runs on the dev computer. Run: node scripts/qa.mjs scripts/qa-workspace-ui.mjs

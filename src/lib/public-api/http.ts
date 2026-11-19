@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * Plumbing for `/api/v1`: the response envelope, typed errors, API-key authentication, the per-key
  * rate limit, idempotency keys, cursor pagination and body parsing. Server only.

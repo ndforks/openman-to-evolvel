@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Opt-in live checks against the real AgentMail, AgentPhone and ElevenLabs accounts (the fakes live in
 // mail-phone-test.mjs). Run through `node scripts/mail-phone-test.mjs --live`, or alone:
 //
@@ -23,7 +25,7 @@ import { pathToFileURL } from "node:url";
 import { loadEnv } from "./env.mjs";
 
 loadEnv();
-const APP = process.env.TEST_APP_URL || "http://127.0.0.1:3001";
+const APP = (process.env.TEST_APP_URL || process.env.BASE_URL || "http://127.0.0.1:3001").replace(/\/$/, "");
 const STAGING = (process.env.APP_PUBLIC_URL || "").replace(/\/+$/, "");
 const AM = (process.env.AGENTMAIL_BASE_URL || "https://api.agentmail.to").replace(/\/+$/, "");
 const AP = (process.env.AGENTPHONE_BASE_URL || "https://api.agentphone.ai").replace(/\/+$/, "");

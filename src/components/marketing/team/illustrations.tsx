@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /**
  * The four illustrations in "What sets … apart", drawn with CSS and lucide icons.
  * Each fills a 451 x 392 stage; `Stage` centres it and shrinks it where the column is narrower.

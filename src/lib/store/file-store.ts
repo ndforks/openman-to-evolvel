@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** File-backed store. Works with no account: one folder per task under `.data/tasks/`. */
 import { promises as fs } from "node:fs";
 import path from "node:path";

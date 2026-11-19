@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** "What sets … apart": four alternating blocks, each pairing an illustration with a short explanation. */
 import type { ReactNode } from "react";
 import { brand } from "@/config/brand";

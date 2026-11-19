@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** Static content of the Automations pages: the three ways an automation can start and the example ideas. */
 import { brand } from "@/config/brand";
 

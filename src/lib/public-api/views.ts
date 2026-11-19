@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 /** How resources look in the public API: snake_case, stable field names, no server-only state. */
 import type { AgentEvent, TaskStatus } from "@/lib/agent/types";
 import type { ApiTask } from "@/lib/db/public-api";

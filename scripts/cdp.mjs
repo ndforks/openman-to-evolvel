@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Organic Intelligence, Inc.
 // Small Chrome DevTools Protocol driver for integration checks. No dependencies.
 // Used by scripts/qa.mjs. Extends the idea in scripts/shot.mjs with click, hover, type and wait helpers.
 import { spawn } from "node:child_process";
