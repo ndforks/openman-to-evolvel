@@ -1,0 +1,36 @@
+# Draft, unverified in this session (the dev container here runs MariaDB
+# installed directly, not through Docker). The `app` service's base image
+# has no PHP extensions installed (pdo_mysql, etc.) — swap it for a proper
+# Dockerfile before relying on this for real local development.
+services:
+  app:
+    image: php:8.3-cli
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mariadb
+    environment:
+      DB_HOST: mariadb
+      DB_PORT: 3306
+      DB_DATABASE: evolvel
+      DB_USERNAME: evolvel
+      DB_PASSWORD: evolvel
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    ports:
+      - "8000:8000"
+
+  mariadb:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: evolvel
+      MARIADB_USER: evolvel
+      MARIADB_PASSWORD: evolvel
+      MARIADB_ROOT_PASSWORD: evolvel
+    volumes:
+      - evolvel-mariadb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  evolvel-mariadb:

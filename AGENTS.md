@@ -105,11 +105,11 @@ Modules/<Name>/
 
 | Module | Carries over from OpenMan | Status |
 | --- | --- | --- |
-| `Core` | Accounts, settings, notifications, API keys, webhooks, usage counters, invites, ops events | scaffolded this session |
-| `Tasks` | `tasks`, `task_events`, `task_files`, `task_members` — an agent run and its timeline | scaffolded this session |
-| `Projects` | `projects`, `project_files`, `project_members`, `project_proposals` | scaffolded this session |
-| `Agents` | The Hermes-Agent-on-a-computer concept, replaced by `AgentRuntime` + git-worktree sandboxes | contract + stub adapter scaffolded this session |
-| `Automations` | `automations`, `automation_runs`, the `scripts/worker.mjs` scheduler tick | scaffolded this session |
+| `Core` | Accounts, API keys (`ev_`-prefixed, SHA-256 stored), settings, notifications, webhooks + deliveries | **built**: models, migrations, `ApiKeyService`, `WebhookDispatcher`, 10 PHPUnit tests, all green against MariaDB |
+| `Tasks` | `tasks`, `task_events` (gap-free replay sequence), `task_files`, `task_members` | **built**: models, migrations, `TaskService` (status transitions, locked event sequencing), 4 PHPUnit tests |
+| `Projects` | `projects`, `project_files`, `project_members`, `project_proposals` | **built**: models, migrations, `ProposalReviewService` (approve/reject, one decision only), 3 PHPUnit tests |
+| `Agents` | The Hermes-Agent-on-a-computer concept | **built**: `Sandbox` model + `GitWorktreeSandboxProvisioner` (a real `git worktree add`/`remove`, tested against a real throwaway repo, not mocked); `AgentRuntime` contract bound to `NullAgentRuntime`, which throws rather than faking a run — the OpenCode adapter itself is **not yet built** |
+| `Automations` | `automations`, `automation_runs`, the `scripts/worker.mjs` scheduler tick | **built**: `AutomationScheduler` (row-locked, concurrency-safe tick), `php artisan automations:tick` scheduled every minute in `routes/console.php`, 5 PHPUnit tests |
 | `ModelGateway` | Orgo's model proxy | pending — port the previous `evolvel`'s OpenRouter-gateway plan |
 | `Connectors` | `custom_connectors` | pending |
 | `Skills` | `skill_builds` | pending |
@@ -117,6 +117,13 @@ Modules/<Name>/
 | `Knowledge` | `knowledge` | pending |
 | `Communications` | `mailboxes`/`mail_*`, `phone_numbers`/`phone_*` | pending, optional per the OpenMan "offer only what works" rule |
 | `Meetings` | `meetings`, `recordings` | pending, optional |
+
+28 PHPUnit tests pass against a real MariaDB instance (`vendor/bin/pint --format agent` clean). Deliberate deviations from
+the old `evolvel`'s DB-convention line ("no `timestamps()`, no `json()` columns"): this product's domain (task timelines,
+tool-call payloads, settings) genuinely needs both, so they are allowed here — `bigIncrements()` and "never `enum()`"
+are kept. `User` (not a module) gained `HasApiTokens` (Sanctum) and relations to `Modules\Core`'s models; that is the one
+place application code reaches into a module's models directly, which is expected — `app/` is allowed to know about
+every module, modules are not allowed to know about each other's internals.
 
 Rules:
 
@@ -197,9 +204,13 @@ project gets its own `docker-compose.yml` (unlike the old `evolvel`, this repo i
 
 ## Roadmap (honest state, kept current)
 
-This session scaffolded the Laravel application, `internachi/modular` wiring, and the `Core`, `Tasks`, `Projects`,
-`Agents`, and `Automations` modules with real models, migrations, services and a first set of honest PHPUnit tests.
-Not yet built, in priority order: `ModelGateway`, `Connectors`, `Skills`, `Websites`, `Knowledge`, auth/sign-in flow,
-the public `/api/v1` surface with webhooks, the scheduler tick command, a standalone `docker-compose.yml`, NativePHP
-mobile shell, and the parity ledger against `legacy/openman-nextjs-*`. Treat anything not in the table above as not
+This session scaffolded the Laravel application, `internachi/modular` wiring, and built the `Core`, `Tasks`,
+`Projects`, `Agents`, and `Automations` modules end to end (see the module table above for exactly what each one
+does and does not do yet). Not yet built, in priority order: `ModelGateway`, `Connectors`, `Skills`, `Websites`,
+`Knowledge`, the auth/sign-in flow and `/app` web UI, the public `/api/v1` HTTP surface over the Core/Tasks/Projects
+services that already exist, the OpenCode `AgentRuntime` adapter (the contract and a sandbox provisioner exist; the
+actual execution engine does not), a working standalone `docker-compose.yml` (a draft exists at the repo root but is **unverified** — its `app` image
+has no PHP extensions installed yet; MariaDB in this session runs installed directly, not containerized), guard tests (`ModuleNamingTest`, `DatabasePolicyTest`, `NoLoopbackAddressTest`,
+`ProjectStandardsTest` — none of these exist as code yet, only as rules in this file), NativePHP mobile shell, and
+the parity ledger against `legacy/openman-nextjs-*`. Treat anything not marked **built** in the table above as not
 started — do not report a module done because its directory exists.
