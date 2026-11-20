@@ -96,4 +96,35 @@ class GitWorktreeSandboxProvisionerTest extends TestCase
         $this->assertDirectoryDoesNotExist($sandbox->worktree_path);
         $this->assertDatabaseHas('sandboxes', ['id' => $sandbox->id, 'status' => 'destroyed']);
     }
+
+    #[Test]
+    public function it_gives_each_provisioned_sandbox_its_own_branch_name(): void
+    {
+        /* Arrange */
+        $provisioner = new GitWorktreeSandboxProvisioner($this->worktreesBasePath);
+
+        /* Act */
+        $first = $provisioner->provision(taskId: 101, repositoryPath: $this->repositoryPath);
+        $second = $provisioner->provision(taskId: 102, repositoryPath: $this->repositoryPath);
+
+        /* Assert */
+        $this->assertNotSame($first->branch, $second->branch);
+        $this->assertStringContainsString('task-101', $first->branch);
+        $this->assertStringContainsString('task-102', $second->branch);
+    }
+
+    #[Test]
+    public function it_leaves_the_repositorys_own_working_copy_untouched(): void
+    {
+        /* Arrange */
+        $provisioner = new GitWorktreeSandboxProvisioner($this->worktreesBasePath);
+
+        /* Act */
+        $provisioner->provision(taskId: 200, repositoryPath: $this->repositoryPath);
+
+        /* Assert */
+        $currentBranch = trim(Process::path($this->repositoryPath)->run('git rev-parse --abbrev-ref HEAD')->output());
+        $this->assertNotSame('evolvel/task-200', $currentBranch);
+        $this->assertFileExists($this->repositoryPath.'/README.md');
+    }
 }

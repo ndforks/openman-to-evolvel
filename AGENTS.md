@@ -118,7 +118,11 @@ Modules/<Name>/
 | `Communications` | `mailboxes`/`mail_*`, `phone_numbers`/`phone_*` | pending, optional per the OpenMan "offer only what works" rule |
 | `Meetings` | `meetings`, `recordings` | pending, optional |
 
-28 PHPUnit tests pass against a real MariaDB instance (`vendor/bin/pint --format agent` clean). Deliberate deviations from
+111 PHPUnit tests pass against a real MariaDB instance (`vendor/bin/pint --format agent` clean) — every model relation,
+cast, unique constraint, enum classification and service-layer flow across all five modules has Feature coverage;
+several caught real bugs on first write (a bad `Process::path()` call silently leaving a sandbox stuck instead of
+marking it failed; a Laravel test helper, `expectsOutputToContain()`, that ran the command's DB writes outside this
+test's transaction — both fixed, not worked around). Deliberate deviations from
 the old `evolvel`'s DB-convention line ("no `timestamps()`, no `json()` columns"): this product's domain (task timelines,
 tool-call payloads, settings) genuinely needs both, so they are allowed here — `bigIncrements()` and "never `enum()`"
 are kept. `User` (not a module) gained `HasApiTokens` (Sanctum) and relations to `Modules\Core`'s models; that is the one

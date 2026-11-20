@@ -88,4 +88,33 @@ class AutomationSchedulerTest extends TestCase
         $this->assertSame(3, $fired);
         $this->assertDatabaseCount('automation_runs', 3);
     }
+
+    #[Test]
+    public function it_does_nothing_on_a_tick_with_no_automations_at_all(): void
+    {
+        /* Arrange */
+        $scheduler = $this->app->make(TicksAutomations::class);
+
+        /* Act */
+        $fired = $scheduler->tick();
+
+        /* Assert */
+        $this->assertSame(0, $fired);
+    }
+
+    #[Test]
+    public function it_does_not_fire_an_automation_a_second_time_once_its_next_run_has_moved_on(): void
+    {
+        /* Arrange */
+        $automation = Automation::factory()->due()->create(['cron_expression' => '0 * * * *']);
+        $scheduler = $this->app->make(TicksAutomations::class);
+        $scheduler->tick();
+
+        /* Act */
+        $secondTickFired = $scheduler->tick();
+
+        /* Assert */
+        $this->assertSame(0, $secondTickFired);
+        $this->assertDatabaseCount('automation_runs', 1);
+    }
 }
