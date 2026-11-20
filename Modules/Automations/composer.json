@@ -1,0 +1,24 @@
+{
+	"name": "modules/automations",
+	"description": "",
+	"type": "library",
+	"version": "1.0",
+	"license": "proprietary",
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"Modules\\Automations\\": "src/",
+			"Modules\\Automations\\Tests\\": "tests/",
+			"Modules\\Automations\\Database\\Factories\\": "database/factories/",
+			"Modules\\Automations\\Database\\Seeders\\": "database/seeders/"
+		}
+	},
+	"minimum-stability": "stable",
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Modules\\Automations\\Providers\\AutomationsServiceProvider"
+			]
+		}
+	}
+}

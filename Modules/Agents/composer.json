@@ -1,0 +1,24 @@
+{
+	"name": "modules/agents",
+	"description": "",
+	"type": "library",
+	"version": "1.0",
+	"license": "proprietary",
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"Modules\\Agents\\": "src/",
+			"Modules\\Agents\\Tests\\": "tests/",
+			"Modules\\Agents\\Database\\Factories\\": "database/factories/",
+			"Modules\\Agents\\Database\\Seeders\\": "database/seeders/"
+		}
+	},
+	"minimum-stability": "stable",
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Modules\\Agents\\Providers\\AgentsServiceProvider"
+			]
+		}
+	}
+}
