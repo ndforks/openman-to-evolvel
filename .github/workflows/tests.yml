@@ -3,8 +3,7 @@ name: Tests
 on:
   push:
     branches:
-      - master
-      - '*.x'
+      - main
   pull_request:
   schedule:
     - cron: '0 0 * * *'
@@ -16,12 +15,23 @@ jobs:
   tests:
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: true
-      matrix:
-        php: [8.3, 8.4, 8.5]
+    name: PHP 8.3 (MariaDB)
 
-    name: PHP ${{ matrix.php }}
+    services:
+      mariadb:
+        image: mariadb:11
+        env:
+          MARIADB_DATABASE: evolvel_testing
+          MARIADB_USER: evolvel
+          MARIADB_PASSWORD: evolvel
+          MARIADB_ROOT_PASSWORD: evolvel
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
 
     steps:
       - name: Checkout code
@@ -32,8 +42,8 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
         with:
-          php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          php-version: '8.3'
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, pdo_mysql
           coverage: none
 
       - name: Install Composer dependencies
@@ -46,4 +56,7 @@ jobs:
         run: php artisan key:generate
 
       - name: Execute tests
+        # phpunit.xml pins DB_CONNECTION/DB_HOST/DB_PORT/DB_DATABASE/DB_USERNAME/DB_PASSWORD
+        # to the mariadb service above (127.0.0.1:3306, evolvel_testing) — see AGENTS.md
+        # §3: MariaDB only, never SQLite.
         run: php artisan test
