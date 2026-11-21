@@ -239,18 +239,23 @@ This is the honest, current state of the project. Treat anything not marked **bu
 if its directory already exists.
 
 **Built this phase:** the Laravel application skeleton, `internachi/modular` wiring, and the `Core`, `Tasks`,
-`Projects`, `Agents`, and `Automations` modules, each with real models, migrations, services, and tests.
+`Projects`, `Agents`, and `Automations` modules, each with real models, migrations, services, and tests, plus the
+`OpenCodeAgentRuntime` adapter (start/stop a real process; it does not yet read back what that process reports).
 
-**Not yet built, in priority order:**
+**The full, line-by-line backlog — every remaining gap, checked against OpenMan's actual schema and docs, with
+nothing summarized away — lives in [`BUILD_PLAN.md`](BUILD_PLAN.md).** This section is the short version; that
+file is the source of truth for exactly what is missing and why. Update both together.
 
-1. `ModelGateway`, `Connectors`, `Skills`, `Websites`, `Knowledge` modules.
-2. The authentication/sign-in flow and the `/app` web UI.
-3. The public `/api/v1` HTTP surface over the Core/Tasks/Projects services that already exist.
-4. Wiring an `OpenCodeAgentRuntime` run's JSON event stream into `Modules\Tasks`'s `TaskEvent` timeline — the
-   adapter can start and stop a real `opencode` process, but nothing yet reads what it reports back.
-5. A working, verified standalone `docker-compose.yml` — a draft exists at the repository root, but its `app`
-   image has no PHP extensions installed yet, and MariaDB currently runs installed directly rather than
-   containerized.
-6. The guard tests listed in §6 — currently documented as rules only, not enforced in code.
-7. The NativePHP mobile shell.
-8. A parity ledger against `legacy/openman-nextjs-*`, on the pattern of `exprmt`'s `V1ParityLedgerTest`.
+In short, in priority order (see `BUILD_PLAN.md` for the full detail behind each):
+
+1. Finish the Tasks/Agents loop: feed an `OpenCodeAgentRuntime` run's JSON event stream into `TaskEvent`, detect
+   run completion, and sweep sandboxes once a task finishes (`BUILD_PLAN.md` §2, §4).
+2. Authentication and a minimal web UI (`BUILD_PLAN.md` §9.1, §9.2).
+3. The public `/api/v1` HTTP surface, including rate limiting, idempotency, and an actual outgoing-webhook
+   delivery worker — `WebhookDispatcher` only queues a row today; nothing sends it (`BUILD_PLAN.md` §9.3).
+4. `ModelGateway`, `Connectors`, `Skills`, `Websites`, `Knowledge` modules — none started (`BUILD_PLAN.md` §6–§8,
+   §11).
+5. Security controls that cut across all of the above: SSRF-safe fetching, inbound-webhook verification, a
+   formal secret-sealing convention, redacted logging, invite gate, usage caps (`BUILD_PLAN.md` §12, §1.3–§1.6).
+6. A working, verified standalone `docker-compose.yml`; the guard tests listed in §6 (rules only today, enforced
+   by nothing); the NativePHP mobile shell; a parity ledger against `legacy/openman-nextjs-*`.

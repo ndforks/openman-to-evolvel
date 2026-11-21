@@ -74,7 +74,8 @@ marked **built**, treat it as not started yet, regardless of whether its folder 
 | Model access, custom connectors, skills, published websites | Not built |
 | Mobile app | Not built |
 
-See `AGENTS.md` → "Roadmap" for the current, line-by-line state.
+See [`BUILD_PLAN.md`](BUILD_PLAN.md) for the complete, unabridged backlog of everything still missing, checked
+line-by-line against OpenMan's own database schema and documentation — not a summary, the whole list.
 
 ## Getting started (for developers)
 
