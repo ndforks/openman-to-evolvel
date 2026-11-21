@@ -68,7 +68,7 @@ marked **built**, treat it as not started yet, regardless of whether its folder 
 | Projects, shared files, and the proposal-review workflow | **Built** and tested |
 | Per-task sandboxes (isolated `git` worktrees) | **Built** and tested |
 | Scheduled automations | **Built** and tested |
-| The AI execution engine itself | Not built — the plumbing exists, but nothing can actually run an AI agent yet |
+| The AI execution engine | **Built** — it can start and stop a real [OpenCode](https://github.com/sst/opencode) agent run in a sandbox, but nothing yet connects what that run reports back to a task's own timeline |
 | Sign-in and the web dashboard | Not built |
 | The public API surface | Not built |
 | Model access, custom connectors, skills, published websites | Not built |

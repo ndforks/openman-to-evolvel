@@ -120,7 +120,7 @@ Modules/<Name>/
 | `Core` | Accounts, API keys (`ev_`-prefixed, SHA-256 stored), settings, notifications, webhooks and deliveries | **Built.** Models, migrations, `ApiKeyService`, `WebhookDispatcher`; tested |
 | `Tasks` | `tasks`, `task_events` (a gap-free replay sequence), `task_files`, `task_members` | **Built.** Models, migrations, `TaskService` (status transitions, locked event sequencing); tested |
 | `Projects` | `projects`, `project_files`, `project_members`, `project_proposals` | **Built.** Models, migrations, `ProposalReviewService` (approve/reject, one decision only); tested |
-| `Agents` | The Hermes-Agent-on-a-computer concept | **Partially built.** `Sandbox` model and `GitWorktreeSandboxProvisioner` run real `git worktree add`/`remove` commands, tested against a throwaway repository rather than mocked. The `AgentRuntime` contract is bound to `NullAgentRuntime`, which throws rather than faking a run — the OpenCode adapter itself does not exist yet |
+| `Agents` | The Hermes-Agent-on-a-computer concept | **Built.** `Sandbox` model and `GitWorktreeSandboxProvisioner` run real `git worktree add`/`remove` commands, tested against a throwaway repository rather than mocked. The `AgentRuntime` contract is bound to `OpenCodeAgentRuntime`, which drives the real `opencode` CLI (the `opencode-ai` package) as a background process per run and signals it to stop by PID; `NullAgentRuntime` remains available for deployments or tests with no `opencode` binary installed. Not yet wired: feeding a run's event stream into `Modules\Tasks`'s `TaskEvent` timeline |
 | `Automations` | `automations`, `automation_runs`, the `scripts/worker.mjs` scheduler tick | **Built.** `AutomationScheduler` (a row-locked, concurrency-safe tick) and `php artisan automations:tick`, scheduled every minute in `routes/console.php`; tested |
 | `ModelGateway` | Orgo's model proxy | Pending — port the previous `evolvel`'s OpenRouter-gateway plan |
 | `Connectors` | `custom_connectors` | Pending |
@@ -246,8 +246,8 @@ if its directory already exists.
 1. `ModelGateway`, `Connectors`, `Skills`, `Websites`, `Knowledge` modules.
 2. The authentication/sign-in flow and the `/app` web UI.
 3. The public `/api/v1` HTTP surface over the Core/Tasks/Projects services that already exist.
-4. The OpenCode `AgentRuntime` adapter — the contract and a sandbox provisioner exist; the execution engine itself
-   does not.
+4. Wiring an `OpenCodeAgentRuntime` run's JSON event stream into `Modules\Tasks`'s `TaskEvent` timeline — the
+   adapter can start and stop a real `opencode` process, but nothing yet reads what it reports back.
 5. A working, verified standalone `docker-compose.yml` — a draft exists at the repository root, but its `app`
    image has no PHP extensions installed yet, and MariaDB currently runs installed directly rather than
    containerized.
